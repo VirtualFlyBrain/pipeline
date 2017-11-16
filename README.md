@@ -10,11 +10,11 @@ A repository for amalgamating pipeline issue tickets and general VFB pipeline do
 
 #### Endpoints: 
 
- Endpoint | DB | Neo4j version | Bolt | r/w status | Behind VPN | Status in pipeline (test/dev/staging/production) |
+ Endpoint | DB | Neo4j version | Bolt | r/w status | Behind VPN | Status in pipeline (test/dev/staging/prod) | backup link |
  --- | ----| --- | --- | --- | ----| ---- 
- kbw.virtualflybrain.org:7474 | VFBneoKB | Neo4j 3,n | y | r/w | Y | production |
+ kbw.virtualflybrain.org:7474 | VFBneoKB | Neo4j 3,n | y | r/w | Y | prod | [backup](https://blanik.inf.ed.ac.uk:8079/view/NEO4j/job/Backup%20KB%20on%20rancher/)
 kb.virtualflybrain.org   | VFBNeoKB | Neo4j 3.n | ? | read only | N | ? | 
-pdb.virtualflybrain.org  | VFBNeoProd |  Neo4j 2.n | n | read only | N | production?|
+pdb.virtualflybrain.org  | VFBNeoProd |  Neo4j 2.n | n | read only | N | prod?|
 ...
 
 TODO: 
