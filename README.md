@@ -34,9 +34,9 @@ http://owl.virtualflybrain.org/api/runQuery.groovy? | production
 
 virtualflybrain.org - live VFB 1.5
 
-sandboxN.vfb.ed.ac.uk  = VFB 1.5 test ?
+[VFB 1.5 Site Deployment Documentation](https://github.com/VirtualFlyBrain/VFB/blob/master/deploy/README.md)
 
-v2.virtualflybrain.org - live VFB 1.5
+v2.virtualflybrain.org - live VFB 2.0
 
 ## GitHub branches for server code
 
