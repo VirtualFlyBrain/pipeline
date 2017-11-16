@@ -8,7 +8,7 @@ A repository for amalgamating pipeline issue tickets and general VFB pipeline do
 VFBneoKB = KnowledgeBase of annotations kept by VFB.
 VFBneoProd = Web facing Neo4J database
 
-Endpoints: 
+#### Endpoints: 
 
  Endpoint | DB | Neo4j version | Bolt | r/w status | Behind VPN | Status in pipeline (test/dev/staging/production) |
  --- | ----| --- | --- | --- | ----| ---- 
@@ -17,19 +17,28 @@ kb.virtualflybrain.org   | VFBNeoKB | Neo4j 3.n | ? | read only | N | ? |
 pdb.virtualflybrain.org  | VFBNeoProd |  Neo4j 2.n | n | read only | N | production?|
 ...
 
+TODO: 
+ - Document relaionship kb to kbw
+ - If we have test instances for production, which front end server are they currently used by.  Would be very handy to keep this up-to-date.
 
-## OWL servers:
+### OWL servers:
 
-### AberOWL: 
+#### AberOWL: 
  Endpoint |  Status in pipeline (test/dev/staging/production) |
  --- | ----
 http://owl.virtualflybrain.org/api/runQuery.groovy? | production
 
-SOLR servers:
+### SOLR servers:
 
-front end:
+### front end:
 
 virtualflybrain.org - live VFB 1.5
-sandboxN.vfb.ed.ac.uk  = ???
+
+sandboxN.vfb.ed.ac.uk  = VFB 1.5 test ?
+
 v2.virtualflybrain.org - live VFB 1.5
+
+## GitHub branches for server code
+
+TODO: Doc branch -> front end relationship (this should probably be on geppetto-vfb repo)
 
