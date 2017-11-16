@@ -14,8 +14,8 @@ A repository for amalgamating pipeline issue tickets and general VFB pipeline do
  Endpoint | DB | Neo4j version | Bolt | r/w status | Behind VPN | Status in pipeline (test/dev/staging/prod) | backup link |
  --- | ----| --- | --- | --- | ----| ---- | ---
  kbw.virtualflybrain.org:7474 | VFBneoKB | Neo4j 3,n | y | r/w | Y | prod | [backup](https://blanik.inf.ed.ac.uk:8079/view/NEO4j/job/Backup%20KB%20on%20rancher/)
-kb.virtualflybrain.org   | VFBNeoKB | Neo4j 3.n | ? | read only | N | ? | |
-pdb.virtualflybrain.org  | VFBNeoProd |  Neo4j 2.n | n | read only | N | prod?| |
+kb.virtualflybrain.org   | VFBNeoKB | Neo4j 3.n | Y | read only | N | ? | [update](https://blanik.inf.ed.ac.uk:8079/view/Rancher/job/Sync_Servers/) |
+pdb.virtualflybrain.org  | VFBNeoProd |  Neo4j 2.n | NS | read only | N | prod?| |
 ...
 
 TODO: 
