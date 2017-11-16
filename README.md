@@ -5,8 +5,8 @@ A repository for amalgamating pipeline issue tickets and general VFB pipeline do
 
 ### Neo4J databases:
 
-VFBneoKB = KnowledgeBase of annotations kept by VFB.
-VFBneoProd = Web facing Neo4J database
+* **VFBneoKB** : KnowledgeBase of annotations kept by VFB.
+* **VFBneoProd** :  Web facing Neo4J database
 
 #### Endpoints: 
 
