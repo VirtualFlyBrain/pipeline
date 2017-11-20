@@ -2,10 +2,10 @@ services:
   - docker
 
 env:
-  - VN="uk.ac.ebi.vfb.neo4j"
-  - PDBSERVER="http://localhost:7474"
-  - PDBuser="neo4j"
-  - PDBpassword="neo4j"
+  global:
+    - PDBSERVER="http://localhost:7474"
+    - PDBuser="neo4j"
+    - PDBpassword="neo4j"
 
 before_install:
   - docker run -d --name db -p 7474:7474 --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
