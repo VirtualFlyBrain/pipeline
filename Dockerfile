@@ -5,6 +5,8 @@ apt-get -y install git curl wget default-jdk pigz
 
 ENV PYTHONPATH=/opt/VFB_neo4j/src/
 
+RUN pip3 install psycopg2
+
 RUN pip3 install requests
 
 ENV VFB_OWL_VERSION=Current
