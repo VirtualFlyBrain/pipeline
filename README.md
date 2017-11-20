@@ -1,9 +1,13 @@
 # pipeline
 A repository for amalgamating pipeline issue tickets and general VFB pipeline doc
 
-## Master pipeline doc:
+## Pipeline documentation:
 
-https://github.com/VirtualFlyBrain/pipeline/blob/master/doc/pipeline.md
+Summary:
+
+![image](https://cloud.githubusercontent.com/assets/112839/23518012/fbf38b24-ff69-11e6-945a-378b1949ab81.png)
+
+[Full documentation](https://github.com/VirtualFlyBrain/pipeline/blob/master/doc/pipeline.md)
 
 ## VFB live server info:
 [Rancher Cluster Documentation and backup configs](https://github.com/VirtualFlyBrain/RancherServices/blob/master/README.md)
