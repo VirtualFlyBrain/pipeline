@@ -1,14 +1,20 @@
 services:
   - docker
 
+env:
+  - VN="uk.ac.ebi.vfb.neo4j"
+  - PDBSERVER="http://localhost:7474"
+  - PDBuser="neo4j"
+  - PDBpassword="neo4j"
+
 before_install:
-  - docker run -d --name db -p 7474:7474 --env=NEO4J_AUTH=none --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
+  - docker run -d --name db -p 7474:7474 --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
   - sleep 30s
 
 script:
   - docker logs db
-  - curl -u neo4j:neo4j "http://localhost:7474/db/data/"
+  - curl -u ${PDBuser}:${PDBpassword} "${PDBSERVER}/db/data/"
   - docker build -t test-image:test .
-  - docker run -d --name test test-image:test
+  - docker run -d --name test --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - sleep 1m
   - docker logs test
