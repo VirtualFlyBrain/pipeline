@@ -31,4 +31,4 @@ COPY process.sh /opt/VFB/process.sh
 
 RUN chmod +x /opt/VFB/*.sh
 
-CMD ['/bin/sh -c /opt/VFB/process.sh']
+CMD ["/opt/VFB/process.sh"]
