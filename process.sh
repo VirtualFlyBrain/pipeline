@@ -1,3 +1,4 @@
+#!/bin/sh
 cd "${WORKSPACE}"
 echo '** Git checkout VFB_neo4j **'
 git clone git@github.com:VirtualFlyBrain/VFB_neo4j.git
