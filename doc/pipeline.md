@@ -84,10 +84,11 @@ TODO: rewrite using owl2pdm (removing dependence on Brain) and rolling full URIs
 ### OLS loader
 
 Installs the basic ontology into Prod from OWL (vfb, fbdv, fbcv, fbbi) 
+
 Repo:[VirtualFlyBrain/Docker-OLS-loader](https://github.com/VirtualFlyBrain/Docker-OLS-loader) 
 [Script](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/loadOLS.sh) [DockerHub](https://hub.docker.com/r/virtualflybrain/docker-ols-loader/)
 
-This process loads using custom [OLS configs](https://github.com/VirtualFlyBrain/OLS_configs) and creates a neo4j database (offline) under a mounted [volume](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/Dockerfile#L14) [/data/](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/loadOLS.sh#L32). The enviromental variable [VFB_OWL_VERSION](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/Dockerfile#L3) sets the current [VFB OWL](https://github.com/VirtualFlyBrain/VFB_owl) [release](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/loadOLS.sh#L6) to be loaded.  
+This process loads using custom [OLS configs](https://github.com/VirtualFlyBrain/OLS_configs) and creates a neo4j database (offline) under a mounted [volume](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/Dockerfile#L14) [/data/](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/loadOLS.sh#L32). The enviromental variable [VFB_OWL_VERSION](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/Dockerfile#L3) sets the current [VFB OWL](https://github.com/VirtualFlyBrain/VFB_owl) [release](https://github.com/VirtualFlyBrain/VFB_owl/releases) to be [loaded](https://github.com/VirtualFlyBrain/Docker-OLS-loader/blob/master/loadOLS.sh#L6).  
 Once finished the contence of /data/ can be loaded by a [neo4j production instance](https://hub.docker.com/r/virtualflybrain/docker-vfb-neo4j-productiondb/). under the mounted volume [/disk/](https://github.com/VirtualFlyBrain/Docker-VFB-Neo4j-ProductionDB/blob/master/Dockerfile#L9) (Previous /data/ -> /disk/data/neo4j/.ols/neo4j/).
 
 
