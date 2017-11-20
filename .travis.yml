@@ -3,18 +3,19 @@ services:
 
 env:
   global:
-    - PDBSERVER="http://localhost:7474"
+    - PDBSERVER="http://192.168.0.1:7474"
     - PDBuser="neo4j"
     - PDBpassword="neo4j"
 
 before_install:
-  - travis_wait 120 docker run -d --name db -p 7474:7474 --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
+  - docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dockernet
+  - travis_wait 120 docker run -d --name db -p 7474:7474 --net=dockernet --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
   - sleep 30s
 
 script:
   - docker logs db
   - curl -u ${PDBuser}:${PDBpassword} "${PDBSERVER}/db/data/"
   - docker build -t test-image:test .
-  - travis_wait 90 docker run -d --name test --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+  - travis_wait 90 docker run -d --name test --net=dockernet --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - travis_wait 90 sleep 10m
   - docker logs test
