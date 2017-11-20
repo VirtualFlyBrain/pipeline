@@ -27,4 +27,8 @@ RUN mkdir -p /opt/VFB/jython
 
 RUN cd /opt/VFB/jython && wget -rv -nH --cut-dirs=2 -np -R index.html* http://data.virtualflybrain.org/archive/jython/jython.jar 
 
-CMD ['/bin/bash']
+COPY process.sh /opt/VFB/process.sh
+
+RUN chmod +x /opt/VFB/*.sh
+
+CMD ['/bin/shell -c /opt/VFB/process.sh']
