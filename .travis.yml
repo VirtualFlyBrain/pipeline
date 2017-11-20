@@ -10,4 +10,5 @@ script:
   - curl -u neo4j:neo4j "http://localhost:7474/db/data/"
   - docker build -t test-image:test .
   - docker run -d --name test test-image:test
+  - sleep 1m
   - docker logs test
