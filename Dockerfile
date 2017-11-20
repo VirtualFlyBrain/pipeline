@@ -25,7 +25,7 @@ ENV WORKSPACE=/opt/VFB
 
 RUN mkdir -p /opt/VFB/jython
 
-RUN cd /opt/VFB/jython && wget -q -r -nv -nH --cut-dirs=2 -np -R index.html* http://data.virtualflybrain.org/archive/jython/jython.jar 
+RUN cd /opt/VFB/jython && wget -r -nv -nH --cut-dirs=2 -np -R index.html* http://data.virtualflybrain.org/archive/jython/jython.jar 
 
 COPY process.sh /opt/VFB/process.sh
 
