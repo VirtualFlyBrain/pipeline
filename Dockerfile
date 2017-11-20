@@ -3,9 +3,6 @@ FROM python:3
 RUN apt-get -y update && \ 
 apt-get -y install git curl wget default-jdk
 
-RUN cd /opt/ && \
-git clone https://github.com/VirtualFlyBrain/VFB_neo4j.git
-
 ENV PYTHONPATH=/opt/VFB_neo4j/src/
 
 RUN pip3 install requests
