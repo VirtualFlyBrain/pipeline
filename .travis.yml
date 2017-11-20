@@ -16,4 +16,4 @@ script:
   - docker logs db
   - curl -u ${PDBuser}:${PDBpassword} "http://localhost:7474/db/data/"
   - docker build -t test-image:test .
-  - travis_wait 200 docker run -t --name test --net=dockernet --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+  - travis_wait 200 docker run -t -i --name test --net=dockernet --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
