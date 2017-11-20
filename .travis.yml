@@ -1,7 +1,13 @@
 services:
   - docker
-  
+
+before_install:
+  - docker run -d --name db -p 7474:7474 --env=NEO4J_AUTH=none --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productionDB
+  - sleep 30s
+
 script:
+  - docker logs db
+  - curl -u neo4j:neo4j "http://localhost:7474/db/data/"
   - docker build -t test-image:test .
   - docker run -d --name test test-image:test
   - docker logs test
