@@ -17,7 +17,7 @@ export PYTHONPATH=${WORKSPACE}/VFB_owl/src/code/mod/:${WORKSPACE}/VFB_owl/src/co
 
 sleep 10
 
-java -cp ${WORKSPACE}/VFB_owl/lib/*:/partition/bocian/VFBTools/jython/jython-2.7.0/jython.jar org.python.util.jython -Dpython.path=$PYTHONPATH ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py http://localhost:7474 neo4j neo4j ${WORKSPACE}/VFB_owl/src/owl/vfb.owl
+java -cp ${WORKSPACE}/VFB_owl/lib/*:${WORKSPACE}/jython/jython.jar org.python.util.jython -Dpython.path=$PYTHONPATH ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl
 
 
 sleep 10
@@ -26,7 +26,7 @@ sleep 10
 echo ''
 echo '** Side loading from vfb owl: add refs **'
 
-java -cp ${WORKSPACE}/VFB_owl/lib/*:/partition/bocian/VFBTools/jython/jython-2.7.0/jython.jar org.python.util.jython -Dpython.path=$PYTHONPATH ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py http://localhost:7474 neo4j neo4j ${WORKSPACE}/VFB_owl/src/owl/vfb.owl
+java -cp ${WORKSPACE}/VFB_owl/lib/*:${WORKSPACE}/jython/jython.jar org.python.util.jython -Dpython.path=$PYTHONPATH ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl
 
 sleep 10
 
@@ -35,7 +35,7 @@ export PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/
 echo ''
 echo '** Loading from FB : import pub data **'
 
-python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/flybase2neo/import_pub_data.py http://localhost:7474 neo4j neo4j
+python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/flybase2neo/import_pub_data.py ${PDBSERVER} ${PDBuser} ${PDBpassword}
 
 sleep 10
 
@@ -43,6 +43,6 @@ sleep 10
 echo ''
 echo '** Denormalization: Make named edges **'
 
-python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/make_named_edges.py http://localhost:7474 neo4j neo4j
+python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/make_named_edges.py ${PDBSERVER} ${PDBuser} ${PDBpassword}
 
 sleep 10
