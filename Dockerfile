@@ -1,15 +1,17 @@
 FROM python:3
 
 RUN apt-get -y update && \ 
-apt-get -y install git curl wget default-jdk
+apt-get -y install git curl wget default-jdk pigz
 
 ENV PYTHONPATH=/opt/VFB_neo4j/src/
 
 RUN pip3 install requests
 
-ENV KBSERVER=http://kbw.virtualflybrain.org:7474
+ENV VFB_OWL_VERSION=Current
 
-ENV PDBSERVER=http://pdl.virtualflybrain.org:7474
+ENV KBSERVER=http://kb.virtualflybrain.org
+
+ENV PDBSERVER=http://pdb.virtualflybrain.org
 
 ENV PDBuser=user
 
