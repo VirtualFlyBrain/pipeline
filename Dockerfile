@@ -3,7 +3,7 @@ FROM python:3
 RUN apt-get -y update && \ 
 apt-get -y install git curl wget default-jdk pigz
 
-ENV PYTHONPATH=/opt/VFB_neo4j/src/
+ENV JYTHONPATH=/opt/VFB_neo4j/src/
 
 RUN pip3 install psycopg2
 
