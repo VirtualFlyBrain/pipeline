@@ -1,7 +1,7 @@
 FROM python:3
 
-RUN apt-get -y update && \ 
-apt-get -y install git curl wget default-jdk pigz
+RUN apt-get -qq -y update && \ 
+apt-get -qq -y install git curl wget default-jdk pigz
 
 ENV JYTHONPATH=/opt/VFB_neo4j/src/
 
