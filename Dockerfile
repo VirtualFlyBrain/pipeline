@@ -3,8 +3,6 @@ FROM paternal/pythons
 RUN apt-get -qq -y update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz
 
-ENV JYTHONPATH=/opt/VFB_neo4j/src/
-
 RUN pip3 install psycopg2
 
 RUN pip3 install requests
