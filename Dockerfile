@@ -9,6 +9,8 @@ RUN pip3 install psycopg2
 
 RUN pip3 install requests
 
+RUN pip install site
+
 ENV VFB_OWL_VERSION=Current
 
 ENV KBSERVER=http://kb.virtualflybrain.org
