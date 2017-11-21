@@ -1,4 +1,4 @@
-FROM python:3
+FROM paternal/pythons
 
 RUN apt-get -qq -y update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz
