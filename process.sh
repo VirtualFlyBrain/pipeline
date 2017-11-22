@@ -6,7 +6,7 @@ git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
 echo '** Git checkout hdietze/Brain **'
 git clone --quiet https://github.com/hdietze/Brain.git
 cd Brain
-mvn -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install
+mvn -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install
 cd ${WORKSPACE}
 echo '** Git checkout VFB_owl **'
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git
