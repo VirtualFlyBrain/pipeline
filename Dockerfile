@@ -27,7 +27,8 @@ ENV KBpassword=password
 
 ENV WORKSPACE=/opt/VFB
 
-COPY Brain-1.5.2-SNAPSHOT.* /opt/VFB/
+COPY Brain-1.5.2-SNAPSHOT.jar /opt/VFB/Brain-1.5.2-SNAPSHOT.jar
+COPY Brain-1.5.2-SNAPSHOT.pom /opt/VFB/Brain-1.5.2-SNAPSHOT.pom
 
 COPY process.sh /opt/VFB/process.sh
 
