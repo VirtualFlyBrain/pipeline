@@ -27,9 +27,7 @@ ENV KBpassword=password
 
 ENV WORKSPACE=/opt/VFB
 
-#RUN mkdir -p /opt/VFB/jython
-
-#RUN cd /opt/VFB/jython && wget -r -nv -nH --cut-dirs=2 -np -R index.html* http://data.virtualflybrain.org/archive/jython/jython.jar 
+COPY Brain-1.5.2-SNAPSHOT.jar /opt/VFB/Brain-1.5.2-SNAPSHOT.jar
 
 COPY process.sh /opt/VFB/process.sh
 
