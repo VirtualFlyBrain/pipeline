@@ -4,9 +4,10 @@ gpg --full-gen-key --batch
 gpg --list-keys
 echo '** Git checkout VFB_neo4j **'
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
-echo '** Install hdietze/Brain **'
-ls -l 
-mvn install:install-file –Dfile=/opt/VFB/Brain-1.5.2-SNAPSHOT.jar -DgroupId=uk.ac.ebi.brain -DartifactId=Brain-jar-1.5.2-SNAPSHOT -Dversion=1.5.2
+echo '** Git checkout hdietze/Brain **'
+git clone --quiet https://github.com/hdietze/Brain.git
+cd Brain
+mvn -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install
 cd ${WORKSPACE}
 echo '** Git checkout VFB_owl **'
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git
