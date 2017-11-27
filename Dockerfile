@@ -7,7 +7,7 @@ RUN pip3 install psycopg2
 
 RUN pip3 install requests
 
-RUN pip2 install site
+RUN pip2 -vvv install site
 
 RUN pip3 install site
 
