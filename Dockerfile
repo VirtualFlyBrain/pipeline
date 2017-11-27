@@ -1,6 +1,6 @@
 FROM paternal/pythons
 
-RUN apt-get  -qq update || apt-get  -qq update && \ 
+RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 ca-certificates
 
 RUN pip install site-packages
