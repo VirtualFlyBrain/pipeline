@@ -5,9 +5,9 @@ apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 ca-certificat
 
 RUN pip3 install psycopg2
 
-RUN pip3 install requests
-
 RUN pip2 install requests
+
+RUN pip3 install requests
 
 RUN pip2 install site-packages
 
