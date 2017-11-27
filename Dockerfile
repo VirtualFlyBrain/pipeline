@@ -3,8 +3,6 @@ FROM paternal/pythons
 RUN apt-get update || apt-get update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 ca-certificates
 
-RUN jython -m ensurepip
-
 RUN pip3 install psycopg2
 
 RUN pip install requests
