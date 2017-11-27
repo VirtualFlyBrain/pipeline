@@ -36,6 +36,6 @@ RUN chmod +x /opt/VFB/*.sh
 
 COPY gen-key-script /opt/VFB/gen-key-script
 
-RUN gpg --batch --gen-key --no-show-photos --pinentry-mode loopback /opt/VFB/gen-key-script
+RUN gpg --batch --gen-key --verify-options no-show-photos --list-options no-show-photos --pinentry-mode loopback /opt/VFB/gen-key-script
 
 CMD ["/opt/VFB/process.sh"]
