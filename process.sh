@@ -5,14 +5,14 @@ git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
 echo '** Git checkout hdietze/Brain **'
 git clone --quiet https://github.com/hdietze/Brain.git
 cd Brain
-mvn -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install
+mvn -q -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install
 cd ${WORKSPACE}
 echo '** Git checkout VFB_owl **'
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git
 cd VFB_owl
 echo "Checkout OWL release ${VFB_OWL_VERSION}"
 git checkout tags/${VFB_OWL_VERSION}
-mvn install
+mvn -q install 
 ls ${WORKSPACE}/VFB_owl/lib/*
 echo "Expanding compressed OWL files"
 find . -name '*.gz' -exec pigz -dvf '{}' \;
