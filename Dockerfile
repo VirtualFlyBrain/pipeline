@@ -3,11 +3,11 @@ FROM paternal/pythons
 RUN apt-get update || apt-get update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 ca-certificates
 
-RUN pip3 install psycopg2
+RUN pip install site-packages
+
+RUN pip install psycopg2
 
 RUN pip install requests
-
-RUN pip install site-packages
 
 ENV VFB_OWL_VERSION=Current
 
