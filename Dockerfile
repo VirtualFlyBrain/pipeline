@@ -34,4 +34,6 @@ COPY process.sh /opt/VFB/process.sh
 
 RUN chmod +x /opt/VFB/*.sh
 
+RUN gpg --gen-key --batch
+
 CMD ["/opt/VFB/process.sh"]
