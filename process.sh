@@ -1,7 +1,5 @@
 #!/bin/sh
 cd "${WORKSPACE}"
-gpg --gen-key --batch
-gpg --list-secret-keys --keyid-format LONG
 echo '** Git checkout VFB_neo4j **'
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
 echo '** Git checkout hdietze/Brain **'
