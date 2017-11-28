@@ -6,6 +6,10 @@ ENV JYTHON_VER=2.7.1
 
 ENV JYTHON_HOME=/usr/lib/jython$JYTHON_VER
 
+ENV VFB_OWL_VERSION=Current
+
+ENV OWLTOOLS_VERSION=v0.2.1
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev
 
@@ -21,8 +25,6 @@ RUN $JYTHON_HOME/bin/pip install requests
 RUN pip3 install requests
 
 RUN pip3 install psycopg2
-
-ENV VFB_OWL_VERSION=Current
 
 ENV KBSERVER=http://kb.virtualflybrain.org
 
