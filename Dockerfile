@@ -8,7 +8,7 @@ ENV JYTHON_HOME=/usr/lib/jython$JYTHON_VER
 
 ENV VFB_OWL_VERSION=Current
 
-ENV OWLTOOLS_VERSION=v0.3.0
+ENV OWLTOOLS_VERSION=owlapi-3.5.1
 
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev
