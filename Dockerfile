@@ -2,7 +2,7 @@ FROM paternal/pythons
 
 ENV WORKSPACE=/opt/VFB
 
-ENV JYTHON_VER=2.7.0
+ENV JYTHON_VER=2.7.1
 
 ENV JYTHON_HOME=/usr/lib/jython$JYTHON_VER
 
