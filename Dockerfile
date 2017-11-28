@@ -18,9 +18,9 @@ RUN pip install site-packages
 
 RUN $JYTHON_HOME/bin/pip install requests
 
-RUN pip install requests
+RUN pip3 install requests
 
-RUN pip install psycopg2
+RUN pip3 install psycopg2
 
 ENV VFB_OWL_VERSION=Current
 
