@@ -11,7 +11,7 @@ apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev pyt
 
 RUN apt-get -qq -y remove jython
 
-RUN mkdir -p $WORKSPACE && cd $WORKSPACE && wget http://central.maven.org/maven2/org/python/jython-installer/$JYTHON_VER/jython-installer-$JYTHON_VER.jar && \
+RUN mkdir -p $WORKSPACE && cd $WORKSPACE && wget –quiet http://central.maven.org/maven2/org/python/jython-installer/$JYTHON_VER/jython-installer-$JYTHON_VER.jar && \
 java -jar $WORKSPACE/jython-installer-$JYTHON_VER.jar -s -d $JYTHON_HOME && ln -f $JYTHON_HOME/bin/jython /usr/bin/jython 
 
 RUN pip install site-packages
