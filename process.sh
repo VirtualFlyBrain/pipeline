@@ -12,9 +12,12 @@ git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git
 cd VFB_owl
 echo "Checkout OWL release ${VFB_OWL_VERSION}"
 git checkout tags/${VFB_OWL_VERSION}
-mvn -q install 
-rm /opt/VFB/VFB_owl/lib/jython-standalone-2.7.0.jar
-ls ${WORKSPACE}/VFB_owl/lib/*
+cd ${WORKSPACE}
+echo '** Git checkout owltools **'
+git clone --quiet https://github.com/owlcollab/owltools.git
+cd owltools/OWLTools-Parent/
+mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
+ls ${WORKSPACE}/owltools/*/target/*SNAPSHOT.jar
 echo "Expanding compressed OWL files"
 find . -name '*.gz' -exec pigz -dvf '{}' \;
 
@@ -27,7 +30,7 @@ echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
 
 export JYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_owl/src/code/mod/:${WORKSPACE}/VFB_owl/src/code/owl2neo/:${WORKSPACE}/VFB_owl/src/code/db_maintenance/:${WORKSPACE}/VFB_owl/src/code/entity_checks/:${WORKSPACE}/VFB_owl/src/code/export/:${WORKSPACE}/VFB_owl/src/code/owl_gen/:${WORKSPACE}/VFB_owl/src/code/unit_tests/
-export CLASSPATH=${WORKSPACE}/VFB_owl/lib/*
+export CLASSPATH=${WORKSPACE}/owltools/*/target/*SNAPSHOT.jar
 
 sleep 10
 
