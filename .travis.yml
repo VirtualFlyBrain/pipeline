@@ -8,19 +8,27 @@ env:
     - PDBpassword="neo4j"
 
 before_install:
+  - echo -e "travis_fold:start:neo4j"
   - travis_wait 200 docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dockernet
   - travis_wait 200 docker run -d --name db -p 7474:7474 --net=dockernet --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
   - sleep 30s
+  - echo -e "travis_fold:end:neo4j"
 
 script:
+  - echo -e "travis_fold:start:checks"
   - docker logs db
   - curl -u ${PDBuser}:${PDBpassword} "http://localhost:7474/db/data/"
+  - echo -e "travis_fold:end:checks"
+  - echo -e "travis_fold:start:dockerbuild"
   - docker build -t test-image:test .
+  - echo -e "travis_fold:end:dockerbuild"
+  - echo -e "travis_fold:start:dockerstart"
   - travis_wait 200 docker run -d --name test --net=dockernet --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - sleep 2m
   - docker logs test 2>&1 | grep --color -E '^|Error|Exception'
   - if docker logs test 2>&1 | grep -q Error; then travis_terminate 2; fi
   - sleep 5m
+  - echo -e "travis_fold:end:dockerstart"
   - docker logs --since 6m test 2>&1 | grep --color -E '^|Error|Exception' 
   - if docker logs test 2>&1 | grep -q Error; then travis_terminate 2; fi
   - sleep 5m
