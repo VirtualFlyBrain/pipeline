@@ -16,8 +16,6 @@ java -jar $WORKSPACE/jython-installer-$JYTHON_VER.jar -s -d $JYTHON_HOME && ln -
 
 RUN pip install site-packages
 
-RUN $JYTHON_HOME/bin/pip install psycopg2
-
 RUN $JYTHON_HOME/bin/pip install requests
 
 RUN pip install requests
