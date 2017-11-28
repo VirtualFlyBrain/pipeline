@@ -1,13 +1,24 @@
 FROM paternal/pythons
 
+ENV WORKSPACE=/opt/VFB
+
+ENV JYTHON_VER=2.7.1
+
+ENV JYTHON_HOME=/usr/lib/jython$JYTHON_VER
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 ca-certificates
 
+RUN apt-get -qq -y remove jython
+
+RUN mkdir -p $WORKSPACE && cd $WORKSPACE && wget http://central.maven.org/maven2/org/python/jython-installer/$JYTHON_VER/jython-installer-$JYTHON_VER.jar && \
+java -jar $WORKSPACE/jython-installer-$JYTHON_VER.jar -s -d $JYTHON_HOME && ln -f $JYTHON_HOME/bin/jython /usr/bin/jython 
+
 RUN pip install site-packages
 
-RUN pip install psycopg2
+RUN $JYTHON_HOME/bin/pip install psycopg2
 
-RUN pip install requests
+RUN $JYTHON_HOME/bin/pip install requests
 
 ENV VFB_OWL_VERSION=Current
 
@@ -23,7 +34,7 @@ ENV KBuser=user
 
 ENV KBpassword=password
 
-ENV WORKSPACE=/opt/VFB
+
 
 COPY Brain-1.5.2-SNAPSHOT.jar /opt/VFB/Brain-1.5.2-SNAPSHOT.jar
 COPY Brain-1.5.2-SNAPSHOT.pom /opt/VFB/Brain-1.5.2-SNAPSHOT.pom
