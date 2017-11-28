@@ -27,7 +27,7 @@ echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
 
 export JYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_owl/src/code/mod/:${WORKSPACE}/VFB_owl/src/code/owl2neo/:${WORKSPACE}/VFB_owl/src/code/db_maintenance/:${WORKSPACE}/VFB_owl/src/code/entity_checks/:${WORKSPACE}/VFB_owl/src/code/export/:${WORKSPACE}/VFB_owl/src/code/owl_gen/:${WORKSPACE}/VFB_owl/src/code/unit_tests/
-export CLASSPATH=${WORKSPACE}/VFB_owl/lib/*
+export CLASSPATH=${WORKSPACE}/VFB_owl/lib/Brain-1.5.2-SNAPSHOT.jar
 
 sleep 10
 
