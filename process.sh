@@ -18,7 +18,7 @@ cd ${WORKSPACE}
 echo '** Git checkout owltools **'
 git clone --quiet https://github.com/owlcollab/owltools.git
 cd owltools/OWLTools-Parent/
-mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
+mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
 ls ${WORKSPACE}/owltools/*/target/*SNAPSHOT.jar
 
 echo ''
