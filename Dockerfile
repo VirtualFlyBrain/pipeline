@@ -7,7 +7,7 @@ ENV JYTHON_VER=2.7.1
 ENV JYTHON_HOME=/usr/lib/jython$JYTHON_VER
 
 RUN apt-get -qq update || apt-get -qq update && \ 
-apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 ca-certificates
+apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev
 
 RUN apt-get -qq -y remove jython
 
