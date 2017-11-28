@@ -34,11 +34,6 @@ ENV KBuser=user
 
 ENV KBpassword=password
 
-
-
-COPY Brain-1.5.2-SNAPSHOT.jar /opt/VFB/Brain-1.5.2-SNAPSHOT.jar
-COPY Brain-1.5.2-SNAPSHOT.pom /opt/VFB/Brain-1.5.2-SNAPSHOT.pom
-
 COPY process.sh /opt/VFB/process.sh
 
 RUN chmod +x /opt/VFB/*.sh
