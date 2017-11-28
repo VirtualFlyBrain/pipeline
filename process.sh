@@ -17,7 +17,9 @@ find . -name '*.gz' -exec pigz -dvf '{}' \;
 cd ${WORKSPACE}
 echo '** Git checkout owltools **'
 git clone --quiet https://github.com/owlcollab/owltools.git
-cd owltools/OWLTools-Parent/
+cd ${WORKSPACE}/owltools
+git checkout tags/${OWLTOOLS_VERSION}
+cd ${WORKSPACE}/owltools/OWLTools-Parent/
 mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
 ls ${WORKSPACE}/owltools/*/target/*SNAPSHOT.jar
 
