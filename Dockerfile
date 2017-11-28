@@ -20,6 +20,10 @@ RUN $JYTHON_HOME/bin/pip install psycopg2
 
 RUN $JYTHON_HOME/bin/pip install requests
 
+RUN pip install requests
+
+RUN pip install psycopg2
+
 ENV VFB_OWL_VERSION=Current
 
 ENV KBSERVER=http://kb.virtualflybrain.org
