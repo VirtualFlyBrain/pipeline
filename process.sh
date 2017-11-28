@@ -13,6 +13,7 @@ cd VFB_owl
 echo "Checkout OWL release ${VFB_OWL_VERSION}"
 git checkout tags/${VFB_OWL_VERSION}
 mvn -q install 
+rm /opt/VFB/VFB_owl/lib/jython-standalone-2.7.0.jar
 ls ${WORKSPACE}/VFB_owl/lib/*
 echo "Expanding compressed OWL files"
 find . -name '*.gz' -exec pigz -dvf '{}' \;
