@@ -17,6 +17,11 @@ ls ${WORKSPACE}/VFB_owl/lib/*
 echo "Expanding compressed OWL files"
 find . -name '*.gz' -exec pigz -dvf '{}' \;
 
+set -x
+which jython
+which jython | ls -l
+jython --version
+
 echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
 
