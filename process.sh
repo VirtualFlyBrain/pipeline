@@ -20,7 +20,7 @@ find . -name '*.gz' -exec pigz -dvf '{}' \;
 
 set -x
 which jython
-which jython | ls -l
+which jython | xargs ls -l
 jython --version
 
 echo ''
