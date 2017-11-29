@@ -36,6 +36,8 @@ wget -q http://central.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
 wget -q http://central.maven.org/maven2/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar
 wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-owlapi/0.4.3/elk-owlapi-0.4.3.jar
 wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-reasoner/0.4.2/elk-reasoner-0.4.2.jar
+wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-owl-model/0.4.2/elk-owl-model-0.4.2.jar
+wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-owl-implementation/0.4.2/elk-owl-implementation-0.4.2.jar
 cd ${WORKSPACE}
 echo -e "travis_fold:end:processLoad"
 
