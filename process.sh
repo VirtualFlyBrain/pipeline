@@ -21,7 +21,9 @@ cd ${WORKSPACE}/owltools
 git checkout ${OWLTOOLS_VERSION}
 cd ${WORKSPACE}/owltools/OWLTools-Parent/
 mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
-ls ${WORKSPACE}/owltools/*/target/*SNAPSHOT.jar
+echo -e "travis_fold:start:sourcetree" 
+tree ${WORKSPACE}
+echo -e "travis_fold:end:sourcetree"
 mkdir -p ${WORKSPACE}/owlapi/
 cd ${WORKSPACE}/owlapi/
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-distribution/3.5.1/owlapi-distribution-3.5.1.jar
