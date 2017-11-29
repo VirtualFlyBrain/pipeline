@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo -e "travis_fold:start:set_chunk"
+egrep -lir --include=*.{py} "(chunk_length=1000)" ${WORKSPACE} | xargs sed -i -e "s/chunk_length=1000/chunk_length=${CHUNK_SIZE}/g" 
+echo -e "travis_fold:end:set_chunk"
+
 echo -e "travis_fold:start:add_anonymous_types"
 echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
