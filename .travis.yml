@@ -23,7 +23,7 @@ script:
   - docker build -t test-image:test .
   - echo -e "travis_fold:end:dockerbuild"
   - echo -e "travis_fold:start:dockerstart"
-  - travis_wait 200 docker run -d --name test --net=dockernet --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+  - travis_wait 200 docker run -d --name test --net=dockernet --env=CHUNK_SIZE=500 --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - sleep 2m
   - docker logs -f test 
   - if docker logs test 2>&1 | grep -q Error; then travis_terminate 2; fi
