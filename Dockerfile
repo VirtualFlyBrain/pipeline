@@ -10,6 +10,8 @@ ENV VFB_OWL_VERSION=Current
 
 ENV OWLTOOLS_VERSION=owlapi-3.5.1
 
+ENV CHUNK_SIZE=1000
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree
 
