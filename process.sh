@@ -32,7 +32,6 @@ wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-impl/3.5.1
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-parsers/3.5.1/owlapi-parsers-3.5.1.jar
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-oboformat/3.5.1/owlapi-oboformat-3.5.1.jar
 wget -q http://central.maven.org/maven2/com/google/guava/guava/23.0/guava-23.0.jar
-wget -q http://central.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
 wget -q http://central.maven.org/maven2/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar
 wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-standalone/0.4.3/elk-standalone-0.4.3.jar
 cd ${WORKSPACE}
