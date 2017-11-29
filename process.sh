@@ -31,6 +31,7 @@ wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-tools/3.5.
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-impl/3.5.1/owlapi-impl-3.5.1.jar
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-parsers/3.5.1/owlapi-parsers-3.5.1.jar
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-oboformat/3.5.1/owlapi-oboformat-3.5.1.jar
+wget -q http://central.maven.org/maven2/com/google/guava/guava/23.5-jre/guava-23.5-jre.jar
 cd ${WORKSPACE}
 echo -e "travis_fold:end:processLoad"
 
