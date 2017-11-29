@@ -22,8 +22,6 @@ echo -e "travis_fold:end:add_refs_for_anat"
 echo -e "travis_fold:start:import_pub_data"
 sleep 10
 
-export PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/
-
 echo ''
 echo '** Loading from FB : import pub data **'
 
