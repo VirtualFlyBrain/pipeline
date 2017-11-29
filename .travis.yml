@@ -31,8 +31,8 @@ script:
   - echo -e "travis_fold:end:dockerstart"
   - docker logs --since 3m test 2>&1 | grep --color -E '^|Error|Exception' 
   - if docker logs --since 4m test 2>&1 | grep -q Error; then travis_terminate 2; fi
-  - sleep 5m
-  - docker logs --since 6m test 2>&1 | grep --color -E '^|Error|Exception' 
+  - sleep 2m
+  - docker logs --since 3m test 2>&1 | grep --color -E '^|Error|Exception' 
   - if docker logs --since 4m test 2>&1 | grep -q Error; then travis_terminate 2; fi
   - sleep 5m
   - docker logs --since 6m test 2>&1 | grep --color -E '^|Error|Exception' 
