@@ -1,52 +1,8 @@
 #!/bin/sh
-echo -e "travis_fold:start:processLoad"
-cd "${WORKSPACE}"
-echo '** Git checkout VFB_neo4j **'
-git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
-echo '** Git checkout hdietze/Brain **'
-git clone --quiet https://github.com/hdietze/Brain.git
-cd Brain
-mvn -q -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install
-cd ${WORKSPACE}
-echo '** Git checkout VFB_owl **'
-git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git
-cd VFB_owl
-echo "Checkout OWL release ${VFB_OWL_VERSION}"
-git checkout tags/${VFB_OWL_VERSION}
-echo "Expanding compressed OWL files"
-find . -name '*.gz' -exec pigz -dvf '{}' \;
-cd ${WORKSPACE}
-echo '** Git checkout owltools **'
-git clone --quiet https://github.com/owlcollab/owltools.git
-cd ${WORKSPACE}/owltools
-git checkout ${OWLTOOLS_VERSION}
-cd ${WORKSPACE}/owltools/OWLTools-Parent/
-mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
-mkdir -p ${WORKSPACE}/owlapi/
-cd ${WORKSPACE}/owlapi/
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-distribution/3.5.1/owlapi-distribution-3.5.1.jar
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-apibinding/3.5.1/owlapi-apibinding-3.5.1.jar
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-api/3.5.1/owlapi-api-3.5.1.jar
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-tools/3.5.1/owlapi-tools-3.5.1.jar
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-impl/3.5.1/owlapi-impl-3.5.1.jar
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-parsers/3.5.1/owlapi-parsers-3.5.1.jar
-wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-oboformat/3.5.1/owlapi-oboformat-3.5.1.jar
-wget -q http://central.maven.org/maven2/com/google/guava/guava/23.0/guava-23.0.jar
-wget -q http://central.maven.org/maven2/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar
-wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-standalone/0.3.2/elk-standalone-0.3.2.jar
-wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-owlapi/0.3.2/elk-owlapi-0.3.2.jar
-cd ${WORKSPACE}
-echo -e "travis_fold:end:processLoad"
 
-# echo -e "travis_fold:start:sourcetree" 
-# tree ${WORKSPACE}
-# echo -e "travis_fold:end:sourcetree"
 
 echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
-
-export JYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_owl/src/code/mod/:${WORKSPACE}/VFB_owl/src/code/owl2neo/:${WORKSPACE}/VFB_owl/src/code/db_maintenance/:${WORKSPACE}/VFB_owl/src/code/entity_checks/:${WORKSPACE}/VFB_owl/src/code/export/:${WORKSPACE}/VFB_owl/src/code/owl_gen/:${WORKSPACE}/VFB_owl/src/code/unit_tests/
-export CLASSPATH=${WORKSPACE}/owltools/OWLTools-Core/target/OWLTools-Core-0.2.2-SNAPSHOT.jar:${WORKSPACE}/Brain/target/Brain-1.5.2-SNAPSHOT.jar:${WORKSPACE}/owltools/OWLTools-Runner/target/OWLTools-Runner-0.2.2-SNAPSHOT.jar:${WORKSPACE}/owlapi/*
 
 sleep 10
 
