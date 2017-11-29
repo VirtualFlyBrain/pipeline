@@ -1,13 +1,9 @@
 #!/bin/sh
 
-echo -e "travis_fold:start:set_chunk"
-egrep -lir --include=*.{py} "(chunk_length=1000)" ${WORKSPACE} | xargs sed -i -e "s/chunk_length=1000/chunk_length=${CHUNK_SIZE}/g" 
-echo -e "travis_fold:end:set_chunk"
-
 echo -e "travis_fold:start:add_anonymous_types"
 echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
-
+sed -i -e "s/chunk_length = 1000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py
 sleep 10
 
 jython ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl
@@ -15,6 +11,7 @@ jython ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py ${PDBSERVER}
 echo -e "travis_fold:end:add_anonymous_types"
 
 echo -e "travis_fold:start:add_refs_for_anat"
+sed -i -e "s/chunk_length = 500/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py
 sleep 10
 
 echo ''
