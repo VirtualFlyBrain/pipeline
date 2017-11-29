@@ -1,4 +1,5 @@
 #!/bin/sh
+echo -e "travis_fold:start:processLoad"
 cd "${WORKSPACE}"
 echo '** Git checkout VFB_neo4j **'
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
@@ -21,12 +22,15 @@ cd ${WORKSPACE}/owltools
 git checkout ${OWLTOOLS_VERSION}
 cd ${WORKSPACE}/owltools/OWLTools-Parent/
 mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
-echo -e "travis_fold:start:sourcetree" 
-tree ${WORKSPACE}
-echo -e "travis_fold:end:sourcetree"
 mkdir -p ${WORKSPACE}/owlapi/
 cd ${WORKSPACE}/owlapi/
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-distribution/3.5.1/owlapi-distribution-3.5.1.jar
+cd ${WORKSPACE}
+echo -e "travis_fold:end:processLoad"
+
+echo -e "travis_fold:start:sourcetree" 
+tree ${WORKSPACE}
+echo -e "travis_fold:end:sourcetree"
 
 echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
