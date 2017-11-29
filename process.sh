@@ -38,9 +38,9 @@ wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-owlapi/0.4.3/elk
 cd ${WORKSPACE}
 echo -e "travis_fold:end:processLoad"
 
-echo -e "travis_fold:start:sourcetree" 
-tree ${WORKSPACE}
-echo -e "travis_fold:end:sourcetree"
+# echo -e "travis_fold:start:sourcetree" 
+# tree ${WORKSPACE}
+# echo -e "travis_fold:end:sourcetree"
 
 echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
