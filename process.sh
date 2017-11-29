@@ -25,6 +25,7 @@ mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
 mkdir -p ${WORKSPACE}/owlapi/
 cd ${WORKSPACE}/owlapi/
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-distribution/3.5.1/owlapi-distribution-3.5.1.jar
+wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-osgidistribution/3.5.1/owlapi-osgidistribution-3.5.1.jar
 cd ${WORKSPACE}
 echo -e "travis_fold:end:processLoad"
 
@@ -36,7 +37,7 @@ echo ''
 echo '** Side loading from vfb.owl: add_annonymous types **'
 
 export JYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_owl/src/code/mod/:${WORKSPACE}/VFB_owl/src/code/owl2neo/:${WORKSPACE}/VFB_owl/src/code/db_maintenance/:${WORKSPACE}/VFB_owl/src/code/entity_checks/:${WORKSPACE}/VFB_owl/src/code/export/:${WORKSPACE}/VFB_owl/src/code/owl_gen/:${WORKSPACE}/VFB_owl/src/code/unit_tests/
-export CLASSPATH=${WORKSPACE}/owltools/OWLTools-Core/target/OWLTools-Core-0.2.2-SNAPSHOT.jar:${WORKSPACE}/Brain/target/Brain-1.5.2-SNAPSHOT.jar:${WORKSPACE}/owltools/OWLTools-Runner/target/OWLTools-Runner-0.2.2-SNAPSHOT.jar:${WORKSPACE}/owlapi/owlapi-distribution-3.5.1.jar
+export CLASSPATH=${WORKSPACE}/owltools/OWLTools-Core/target/OWLTools-Core-0.2.2-SNAPSHOT.jar:${WORKSPACE}/Brain/target/Brain-1.5.2-SNAPSHOT.jar:${WORKSPACE}/owltools/OWLTools-Runner/target/OWLTools-Runner-0.2.2-SNAPSHOT.jar:${WORKSPACE}/owlapi/owlapi-distribution-3.5.1.jar:${WORKSPACE}/owlapi/owlapi-osgidistribution-3.5.1.jar
 
 sleep 10
 
