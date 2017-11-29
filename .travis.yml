@@ -26,3 +26,4 @@ script:
   - travis_wait 200 docker run -d --name test --net=dockernet --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - sleep 2m
   - travis_wait 200 docker logs -f test 
+  - if docker logs test 2>&1 | grep -q Error; then travis_terminate 2; fi
