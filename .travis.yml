@@ -6,6 +6,8 @@ env:
     - PDBSERVER="http://192.168.0.1:7474"
     - PDBuser="neo4j"
     - PDBpassword="neo4j"
+    - BUILD_OUTPUT=${TRAVIS_BUILD_DIR}/test.out
+    - PING_SLEEP=60s
 
 before_install:
   - echo -e "travis_fold:start:neo4j"
