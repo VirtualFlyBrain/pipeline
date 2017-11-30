@@ -107,4 +107,4 @@ ENV JYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_owl/src/code/mod/:${
 ENV CLASSPATH=${WORKSPACE}/owltools/OWLTools-Core/target/OWLTools-Core-0.2.2-SNAPSHOT.jar:${WORKSPACE}/Brain/target/Brain-1.5.2-SNAPSHOT.jar:${WORKSPACE}/owltools/OWLTools-Runner/target/OWLTools-Runner-0.2.2-SNAPSHOT.jar:${WORKSPACE}/owlapi/*
 ENV PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/
 
-CMD ["/opt/VFB/process.sh"]
+CMD ["${WORKSPACE}/process.sh"]
