@@ -17,7 +17,7 @@ ENV PING_SLEEP=120s
 ENV BUILD_OUTPUT=${WORKSPACE}/build.out
 
 RUN apt-get -qq update || apt-get -qq update && \ 
-apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree awk
+apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree gawk
 
 RUN apt-get -qq -y remove jython
 
