@@ -19,7 +19,7 @@ before_install:
 script:
   - echo -e "travis_fold:start:checks"
   - ${TRAVIS_BUILD_DIR}/runsilent.sh "docker logs db"
-  - ${TRAVIS_BUILD_DIR}/runsilent.sh "curl -u ${PDBuser}:${PDBpassword} 'http://localhost:7474/db/data/'"
+  - ${TRAVIS_BUILD_DIR}/runsilent.sh "curl -u ${PDBuser}:${PDBpassword} http://localhost:7474/db/data/"
   - echo -e "travis_fold:end:checks"
   - echo -e "travis_fold:start:dockerbuild"
   - ${TRAVIS_BUILD_DIR}/runsilent.sh "docker build -t test-image:test ."
