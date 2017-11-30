@@ -20,7 +20,7 @@ trap 'error_handler' ERR
 
 # Set up a repeating loop to send some output to Travis.
 
-bash -c "while true; do echo \$(date)->$JOBCMD...; sleep $PING_SLEEP; done" &
+bash -c "while true; do echo \$(date)->$JOBCMD... >>&1; sleep $PING_SLEEP; done" &
 PING_LOOP_PID=$!
 
 $JOBCMD >> $BUILD_OUTPUT 2>&1
