@@ -12,6 +12,10 @@ ENV OWLTOOLS_VERSION=owlapi-3.5.1
 
 ENV CHUNK_SIZE=1000
 
+ENV PING_SLEEP=30s
+
+ENV BUILD_OUTPUT=${WORKSPACE}/build.out
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree
 
@@ -41,6 +45,8 @@ ENV KBuser=user
 ENV KBpassword=password
 
 COPY process.sh /opt/VFB/process.sh
+
+COPY runsilent.sh /opt/VFB/runsilent.sh
 
 RUN chmod +x /opt/VFB/*.sh
 
