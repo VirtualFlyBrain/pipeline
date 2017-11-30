@@ -92,6 +92,7 @@ wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-tools/3.5.
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-impl/3.5.1/owlapi-impl-3.5.1.jar && \
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-parsers/3.5.1/owlapi-parsers-3.5.1.jar && \
 wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/owlapi-oboformat/3.5.1/owlapi-oboformat-3.5.1.jar && \
+wget -q http://central.maven.org/maven2/net/sourceforge/owlapi/oboformat-included-owlapi/3.4.9/oboformat-included-owlapi-3.4.9.jar && \
 wget -q http://central.maven.org/maven2/com/google/guava/guava/23.0/guava-23.0.jar && \
 wget -q http://central.maven.org/maven2/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar && \
 wget -q http://central.maven.org/maven2/org/semanticweb/elk/elk-standalone/0.3.2/elk-standalone-0.3.2.jar && \
