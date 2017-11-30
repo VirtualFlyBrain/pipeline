@@ -1,7 +1,8 @@
 #!/bin/sh
 
 echo -e "travis_fold:start:add_anonymous_types"
-echo ''
+echo '' >> ${WORKSPACE}/tick.out
+cat -f ${WORKSPACE}/tick.out >&1 &>&1
 echo '** Side loading from vfb.owl: add_annonymous types **'
 sed -i -e "s/chunk_length = 1000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py
 sleep 10
