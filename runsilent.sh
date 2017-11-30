@@ -4,7 +4,7 @@ set -e
 
 export JOBCMD=$1
 
-touch $BUILD_OUTPUT
+echo "$JOBCMD" >> $BUILD_OUTPUT
 
 dump_output() {
    echo Tailing the last 500 lines of output:
