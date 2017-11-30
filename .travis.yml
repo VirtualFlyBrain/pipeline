@@ -8,6 +8,7 @@ env:
     - PDBpassword="neo4j"
     - BUILD_OUTPUT=${TRAVIS_BUILD_DIR}/test.out
     - PING_SLEEP=60s
+    - WORKSPACE=${TRAVIS_BUILD_DIR}
 
 before_install:
   - echo -e "travis_fold:start:neo4j"
