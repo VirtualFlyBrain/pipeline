@@ -16,6 +16,12 @@ ENV PING_SLEEP=120s
 
 ENV BUILD_OUTPUT=${WORKSPACE}/build.out
 
+ENV RUN_add_anonymous_types=true
+ENV RUN_add_refs_for_anat=true
+ENV RUN_import_pub_data=true
+ENV RUN_make_named_edges=true
+ENV RUN_KB2Prod=true
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree gawk
 
