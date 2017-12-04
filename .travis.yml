@@ -13,6 +13,7 @@ env:
     - RUN_add_anonymous_types=true RUN_add_refs_for_anat=true RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false
     - RUN_add_anonymous_types=false RUN_add_refs_for_anat=true RUN_import_pub_data=true RUN_make_named_edges=false RUN_KB2Prod=false
     - RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=true RUN_KB2Prod=false
+    - RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=true
 
 before_install:
   - echo -e "travis_fold:start:neo4j"
