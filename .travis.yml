@@ -9,6 +9,7 @@ env:
     - BUILD_OUTPUT=${TRAVIS_BUILD_DIR}/test.out
     - PING_SLEEP=60s
     - WORKSPACE=${TRAVIS_BUILD_DIR}
+    - HOME=${TRAVIS_BUILD_DIR}
   matrix:
     - RUN_add_anonymous_types=true RUN_add_refs_for_anat=true RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false
     - RUN_add_anonymous_types=false RUN_add_refs_for_anat=true RUN_import_pub_data=true RUN_make_named_edges=false RUN_KB2Prod=false
@@ -16,6 +17,10 @@ env:
     - RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=true
 
 before_install:
+  - echo -e "travis_fold:start:OLS-loading"
+  - mkdir -p ${HOME}/neo4j/data
+  - travis_wait 200 docker run --volume=$HOME/neo4j/data:/data --env=VFB_OWL_VERSION=dev virtualflybrain/docker-ols-loader
+  - echo -e "travis_fold:end:OLS-loading"
   - echo -e "travis_fold:start:neo4j"
   - travis_wait 200 docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dockernet
   - travis_wait 200 docker run -d --name db -p 7474:7474 --net=dockernet --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
