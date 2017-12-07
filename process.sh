@@ -31,6 +31,19 @@ fi
 echo -e "travis_fold:end:add_refs_for_anat"
 
 echo ''
+echo -e "travis_fold:start:KB2Prod"
+echo '** KB2Prod **'
+if [ "${RUN_KB2Prod}" != false ]
+then
+  export BUILD_OUTPUT=${WORKSPACE}/KB2Prod.out
+  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/KB2Prod.py ${KBSERVER} ${KBuser} ${KBpassword} ${PDBSERVER} ${PDBuser} ${PDBpassword}"
+  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
+else
+  echo SKIPPED
+fi
+echo -e "travis_fold:end:KB2Prod"
+
+echo ''
 echo -e "travis_fold:start:import_pub_data"
 echo '** Loading from FB : import pub data **'
 if [ "${RUN_import_pub_data}" != false ]
@@ -56,16 +69,5 @@ else
 fi
 echo -e "travis_fold:end:make_named_edges"
 
-echo ''
-echo -e "travis_fold:start:KB2Prod"
-echo '** KB2Prod **'
-if [ "${RUN_KB2Prod}" != false ]
-then
-  export BUILD_OUTPUT=${WORKSPACE}/KB2Prod.out
-  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/KB2Prod.py ${KBSERVER} ${KBuser} ${KBpassword} ${PDBSERVER} ${PDBuser} ${PDBpassword}"
-  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
-else
-  echo SKIPPED
-fi
-echo -e "travis_fold:end:KB2Prod"
+
 
