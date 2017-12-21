@@ -1,5 +1,7 @@
 FROM paternal/pythons
 
+VOLUME /logs
+
 ENV WORKSPACE=/opt/VFB
 
 ENV JYTHON_VER=2.7.1
