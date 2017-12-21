@@ -10,6 +10,7 @@ then
   sed -i -e "s/chunk_length = 1000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py
   export BUILD_OUTPUT=${WORKSPACE}/add_anonymous_types.out
   ${WORKSPACE}/runsilent.sh "jython ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl"
+  cp $BUILD_OUTPUT /disk/
   egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
   echo -e "travis_fold:end:add_anonymous_types"
 else
@@ -24,6 +25,7 @@ then
   sed -i -e "s/chunk_length = 500/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py
   export BUILD_OUTPUT=${WORKSPACE}/add_refs_for_anat.out
   ${WORKSPACE}/runsilent.sh "jython ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl"
+  cp $BUILD_OUTPUT /disk/
   egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
 else
   echo SKIPPED
@@ -37,6 +39,7 @@ if [ "${RUN_KB2Prod}" != false ]
 then
   export BUILD_OUTPUT=${WORKSPACE}/KB2Prod.out
   ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/KB2Prod.py ${KBSERVER} ${KBuser} ${KBpassword} ${PDBSERVER} ${PDBuser} ${PDBpassword}"
+  cp $BUILD_OUTPUT /disk/
   egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
 else
   echo SKIPPED
@@ -50,6 +53,7 @@ if [ "${RUN_import_pub_data}" != false ]
 then
   export BUILD_OUTPUT=${WORKSPACE}/import_pub_data.out
   ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/flybase2neo/import_pub_data.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
+  cp $BUILD_OUTPUT /disk/
   egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
 else
   echo SKIPPED
@@ -63,6 +67,7 @@ if [ "${RUN_make_named_edges}" != false ]
 then
   export BUILD_OUTPUT=${WORKSPACE}/make_named_edges.out
   ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/make_named_edges.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
+  cp $BUILD_OUTPUT /disk/
   egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
 else
   echo SKIPPED
