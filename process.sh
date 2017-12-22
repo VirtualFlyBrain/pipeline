@@ -65,6 +65,7 @@ echo -e "travis_fold:start:make_named_edges"
 echo '** Denormalization: Make named edges **'
 if [ "${RUN_make_named_edges}" != false ]
 then
+  sed -i -e "s/chunk_length = 10000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py
   export BUILD_OUTPUT=${WORKSPACE}/make_named_edges.out
   ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/make_named_edges.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
   cp $BUILD_OUTPUT /logs/
