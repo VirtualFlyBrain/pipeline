@@ -75,5 +75,17 @@ else
 fi
 echo -e "travis_fold:end:make_named_edges"
 
-
+echo -e "travis_fold:start:add_constraints_and_redundant_labels"
+echo '** Adding constraints and redundant labels **'
+if [ "${RUN_add_constraints_and_redundant_labels}" != false ]
+then
+# NA  sed -i -e "s/chunk_length = 10000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/add_constraints_and_redundant_labels.py
+  export BUILD_OUTPUT=${WORKSPACE}/add_constraints_and_redundant_labels.out
+  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/add_constraints_and_redundant_labels.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
+  cp $BUILD_OUTPUT /logs/
+  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
+else
+  echo SKIPPED
+fi
+echo -e "travis_fold:end:add_constraints_and_redundant_labels"
 
