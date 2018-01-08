@@ -66,7 +66,7 @@ echo '** Denormalization: Make named edges **'
 if [ "${RUN_make_named_edges}" != false ]
 then
   sed -i -e "s/chunk_length = 10000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/make_named_edges.py
-  if [ "${RUN_add_refs_for_anat}" == false ]
+  if [ "${RUN_add_refs_for_anat}" != true ]
   then
     sed -i -e "s/test_mode = False/test_mode = True/g" ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/make_named_edges.py
   fi
