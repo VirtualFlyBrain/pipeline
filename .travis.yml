@@ -38,7 +38,7 @@ script:
   - ${TRAVIS_BUILD_DIR}/runsilent.sh "docker build -t test-image:test ."
   - echo -e "travis_fold:end:dockerbuild"
   - echo -e "travis_fold:start:dockerstart"
-  - travis_wait 200 docker run -d --name test --net=dockernet --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=CHUNK_SIZE=1 --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+  - travis_wait 200 docker run -d --name test --net=dockernet --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=1 --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - sleep 2m
   - docker logs -f test 
   - if docker logs test 2>&1 | grep -q Error; then travis_terminate 2; fi
