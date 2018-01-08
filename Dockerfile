@@ -23,6 +23,7 @@ ENV RUN_add_refs_for_anat=true
 ENV RUN_import_pub_data=true
 ENV RUN_make_named_edges=true
 ENV RUN_KB2Prod=true
+ENV RUN_add_constraints_and_redundant_labels=true
 
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree gawk
