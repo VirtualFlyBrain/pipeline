@@ -1,3 +1,5 @@
+Amalgamated pipeline code [![Build Status](https://travis-ci.org/VirtualFlyBrain/pipeline.svg?branch=master)](https://travis-ci.org/VirtualFlyBrain/pipeine)
+
 # pipeline
 A repository for amalgamating pipeline issue tickets and general VFB pipeline doc
 
