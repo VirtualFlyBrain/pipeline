@@ -26,7 +26,7 @@ before_install:
   - echo -e "travis_fold:start:neo4j"
   - travis_wait 200 docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dockernet
   - travis_wait 200 docker run -d --name db -p 7474:7474 --ulimit=nofile=1000000:1000000 --net=dockernet --env=NEO4J_AUTH=${PDBuser}/${PDBpassword} --env=NEOREADONLY=false --env=NEO4J_dbms_memory_heap_maxSize=10G --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes --volume=$HOME/neo4j/data:/data virtualflybrain/docker-vfb-neo4j-productiondb
-  - sleep 30s
+  - sleep 40s
   - echo -e "travis_fold:end:neo4j"
 
 script:
