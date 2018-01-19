@@ -78,11 +78,8 @@ mvn -q -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Ds
 RUN cd ${WORKSPACE} && \
 echo '** Git checkout VFB_owl **' && \
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git && \
-cd VFB_owl && \
-echo "Checkout OWL release ${VFB_OWL_VERSION}" && \
-git checkout tags/${VFB_OWL_VERSION} && \
-echo "Expanding compressed OWL files" && \
-find . -name '*.gz' -exec pigz -dvf '{}' \; 
+
+
 
 RUN cd ${WORKSPACE} && \
 echo '** Git checkout owltools **' && \
