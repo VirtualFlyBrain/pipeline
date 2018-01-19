@@ -33,7 +33,9 @@ RUN apt-get -qq -y remove jython
 RUN mkdir -p $WORKSPACE && cd $WORKSPACE && wget -q http://central.maven.org/maven2/org/python/jython-installer/$JYTHON_VER/jython-installer-$JYTHON_VER.jar && \
 java -jar $WORKSPACE/jython-installer-$JYTHON_VER.jar -s -d $JYTHON_HOME && ln -f $JYTHON_HOME/bin/jython /usr/bin/jython 
 
-RUN pip install site-packages
+RUN $JYTHON_HOME/bin/pip install site-packages
+
+RUN pip3 install site-packages
 
 RUN $JYTHON_HOME/bin/pip install requests
 
