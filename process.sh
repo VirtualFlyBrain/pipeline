@@ -3,6 +3,17 @@
 echo 'START' >> ${WORKSPACE}/tick.out
 # tail -f ${WORKSPACE}/tick.out >&1 &>&1
 
+cd ${WORKSPACE}/VFB_neo4j
+git pull | :
+cd -
+cd ${WORKSPACE}/VFB_owl
+git pull | :
+echo "Checkout OWL release ${VFB_OWL_VERSION}" 
+git checkout tags/${VFB_OWL_VERSION} 
+echo "Expanding compressed OWL files"
+find . -name '*.gz' -exec pigz -dvf '{}' \; 
+cd -
+
 echo -e "travis_fold:start:add_anonymous_types"
 echo '** Side loading from vfb.owl: add_annonymous types **'
 if [ "${RUN_add_anonymous_types}" != false ]
