@@ -1,4 +1,4 @@
-FROM paternal/pythons
+FROM rcourt/docker-pythons
 
 VOLUME /logs
 
