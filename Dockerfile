@@ -25,6 +25,12 @@ ENV RUN_make_named_edges=true
 ENV RUN_KB2Prod=true
 ENV RUN_add_constraints_and_redundant_labels=true
 
+RUN pip install site-packages
+
+RUN pip3 install requests
+
+RUN pip3 install psycopg2
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree gawk
 
@@ -33,15 +39,7 @@ RUN apt-get -qq -y remove jython
 RUN mkdir -p $WORKSPACE && cd $WORKSPACE && wget -q http://central.maven.org/maven2/org/python/jython-installer/$JYTHON_VER/jython-installer-$JYTHON_VER.jar && \
 java -jar $WORKSPACE/jython-installer-$JYTHON_VER.jar -s -d $JYTHON_HOME && ln -f $JYTHON_HOME/bin/jython /usr/bin/jython 
 
-#RUN pip install site-packages
-
-RUN pip3 install site-packages
-
 RUN $JYTHON_HOME/bin/pip install requests
-
-RUN pip3 install requests
-
-RUN pip3 install psycopg2
 
 ENV KBSERVER=http://kb.virtualflybrain.org
 
