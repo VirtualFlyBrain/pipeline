@@ -25,8 +25,6 @@ ENV RUN_make_named_edges=true
 ENV RUN_KB2Prod=true
 ENV RUN_add_constraints_and_redundant_labels=true
 
-RUN rm ~/.pip/pip.conf && pip install --upgrade pip
-
 RUN pip install site-packages
 
 RUN pip3 install requests
