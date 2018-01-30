@@ -62,15 +62,6 @@ cd ${WORKSPACE}/Brain && \
 mvn -q -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install 
 
 RUN cd ${WORKSPACE} && \
-echo '** Git checkout owltools **' && \
-git clone --quiet https://github.com/owlcollab/owltools.git && \
-cd ${WORKSPACE}/owltools && \
-git checkout ${OWLTOOLS_VERSION} && \
-cd ${WORKSPACE}/owltools/OWLTools-Parent/ && \
-mvn -q clean install -DskipTests -Dmaven.javadoc.skip=true -Dsource.skip=true
-
-
-RUN cd ${WORKSPACE} && \
 echo -e "travis_fold:end:processLoad"
 
 RUN echo -e "travis_fold:start:sourcetree" && tree ${WORKSPACE} && echo -e "travis_fold:end:sourcetree"
