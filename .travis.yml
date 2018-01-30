@@ -21,7 +21,7 @@ env:
 before_install:
   - echo -e "travis_fold:start:OLS-loading"
   - mkdir -p ${HOME}/neo4j/data
-  - travis_wait 200 docker run --volume=$HOME/neo4j/data:/data --env=VFB_OWL_VERSION=dev virtualflybrain/docker-ols-loader
+  - travis_wait 200 docker run --volume=$HOME/neo4j/data:/data --env=VFB_OWL_VERSION=dev matentzn/docker-ols-loader:dev
   - echo -e "travis_fold:end:OLS-loading"
   - echo -e "travis_fold:start:neo4j"
   - travis_wait 200 docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dockernet
