@@ -4,8 +4,8 @@ echo 'START' >> ${WORKSPACE}/tick.out
 # tail -f ${WORKSPACE}/tick.out >&1 &>&1
 
 cd ${WORKSPACE}/VFB_neo4j
-git pull | :
-cd -
+git pull origin master
+cd ..
 
 echo -e "travis_fold:start:add_refs_for_anat"
 echo '** Side loading from vfb owl: add refs **'
