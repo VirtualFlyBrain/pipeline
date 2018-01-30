@@ -18,8 +18,6 @@ ENV RUN_make_named_edges=true
 ENV RUN_KB2Prod=true
 ENV RUN_add_constraints_and_redundant_labels=true
 
-RUN pip3 install site-packages
-
 RUN pip3 install requests
 
 RUN pip3 install psycopg2
