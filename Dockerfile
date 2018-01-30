@@ -56,11 +56,6 @@ cd "${WORKSPACE}" && \
 echo '** Git checkout VFB_neo4j **' && \
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git 
 
-RUN echo '** Git checkout hdietze/Brain **' && \
-cd ${WORKSPACE} && git clone --quiet https://github.com/hdietze/Brain.git && \
-cd ${WORKSPACE}/Brain && \
-mvn -q -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install 
-
 RUN cd ${WORKSPACE} && \
 echo -e "travis_fold:end:processLoad"
 
