@@ -23,7 +23,7 @@ RUN pip3 install requests
 RUN pip3 install psycopg2
 
 RUN apt-get -qq update || apt-get -qq update && \ 
-apt-get -qq -y install git curl wget default-jdk pigz maven gnupg2 libpq-dev python-dev tree gawk
+apt-get -qq -y install git curl wget default-jdk pigz maven libpq-dev python-dev tree gawk
 
 ENV KBSERVER=http://kb.virtualflybrain.org
 
@@ -42,10 +42,6 @@ COPY process.sh /opt/VFB/process.sh
 COPY runsilent.sh /opt/VFB/runsilent.sh
 
 RUN chmod +x /opt/VFB/*.sh
-
-COPY gen-key-script /opt/VFB/gen-key-script
-
-RUN gpg --batch --gen-key --passphrase '' --verify-options no-show-photos --list-options no-show-photos --pinentry-mode loopback /opt/VFB/gen-key-script
 
 RUN echo -e "travis_fold:start:processLoad" && \
 cd "${WORKSPACE}" && \
