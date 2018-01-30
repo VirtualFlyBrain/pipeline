@@ -62,10 +62,6 @@ cd ${WORKSPACE}/Brain && \
 mvn -q -Dgpg.passphrase=default99 -DskipTests=true -Dmaven.javadoc.skip=true -Dsource.skip=true install 
 
 RUN cd ${WORKSPACE} && \
-echo '** Git checkout VFB_owl **' && \
-git clone --quiet https://github.com/VirtualFlyBrain/VFB_owl.git && \
-
-RUN cd ${WORKSPACE} && \
 echo '** Git checkout owltools **' && \
 git clone --quiet https://github.com/owlcollab/owltools.git && \
 cd ${WORKSPACE}/owltools && \
