@@ -29,11 +29,11 @@ ENV KBSERVER=http://kb.virtualflybrain.org
 
 ENV PDBSERVER=http://pdb.virtualflybrain.org
 
-ENV PDBuser=user
+ENV PDBuser=neo4j
 
 ENV PDBpassword=password
 
-ENV KBuser=user
+ENV KBuser=neo4j
 
 ENV KBpassword=password
 
