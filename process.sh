@@ -4,38 +4,16 @@ echo 'START' >> ${WORKSPACE}/tick.out
 # tail -f ${WORKSPACE}/tick.out >&1 &>&1
 
 cd ${WORKSPACE}/VFB_neo4j
-git pull | :
-cd -
-cd ${WORKSPACE}/VFB_owl
-git pull | :
-echo "Checkout OWL release ${VFB_OWL_VERSION}" 
-git checkout tags/${VFB_OWL_VERSION} 
-echo "Expanding compressed OWL files"
-find . -name '*.gz' -exec pigz -dvf '{}' \; 
-cd -
+git pull origin master
+cd ..
 
-echo -e "travis_fold:start:add_anonymous_types"
-echo '** Side loading from vfb.owl: add_annonymous types **'
-if [ "${RUN_add_anonymous_types}" != false ]
-then
-  sed -i -e "s/chunk_length = 1000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py
-  export BUILD_OUTPUT=${WORKSPACE}/add_anonymous_types.out
-  ${WORKSPACE}/runsilent.sh "jython ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_anonymous_types.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl"
-  cp $BUILD_OUTPUT /logs/
-  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
-  echo -e "travis_fold:end:add_anonymous_types"
-else
-  echo SKIPPED
-fi
-
-echo ''
 echo -e "travis_fold:start:add_refs_for_anat"
 echo '** Side loading from vfb owl: add refs **'
 if [ "${RUN_add_refs_for_anat}" != false ]
 then
-  sed -i -e "s/chunk_length = 500/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py
+  sed -i -e "s/chunk_length=2000/chunk_length=${CHUNK_SIZE}/g" ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/flybase2neo/add_refs_for_anat.py
   export BUILD_OUTPUT=${WORKSPACE}/add_refs_for_anat.out
-  ${WORKSPACE}/runsilent.sh "jython ${WORKSPACE}/VFB_owl/src/code/owl2neo/add_refs_for_anat.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${WORKSPACE}/VFB_owl/src/owl/vfb.owl"
+  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/flybase2neo/add_refs_for_anat.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
   cp $BUILD_OUTPUT /logs/
   egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
 else
