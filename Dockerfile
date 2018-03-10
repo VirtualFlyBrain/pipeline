@@ -22,6 +22,9 @@ RUN pip3 install requests
 
 RUN pip3 install psycopg2
 
+RUN pip3 install wheel
+RUN pip3 install pandas
+
 RUN apt-get -qq update || apt-get -qq update && \ 
 apt-get -qq -y install git curl wget default-jdk pigz maven libpq-dev python-dev tree gawk
 
