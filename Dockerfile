@@ -47,7 +47,7 @@ RUN chmod +x /opt/VFB/*.sh
 RUN echo -e "travis_fold:start:processLoad" && \
 cd "${WORKSPACE}" && \
 echo '** Git checkout VFB_neo4j **' && \
-git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git 
+git clone --quiet -b pub_pipeline_fixes https://github.com/VirtualFlyBrain/VFB_neo4j.git 
 
 RUN cd ${WORKSPACE} && \
 echo -e "travis_fold:end:processLoad"
