@@ -1,10 +1,10 @@
 	Production	Staging	Dev
 V1.5	virtualflybrain.org		
 V2	v2.virtualflybrain.org		
-PDB	pdb.virtualflybrain.org		
+PDB	pdb.virtualflybrain.org		http://pdb-alpha.virtualflybrain.org
 OWL	owl.virtualflybrain.org		
 SOLR			
 VFB.owl version			
 FBbt version			
 FlyBase version			
-New data (not yet. On prod)	-		
+New data (not yet on prod)	-		expression annotation
