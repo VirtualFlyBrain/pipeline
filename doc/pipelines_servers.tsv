@@ -1,5 +1,5 @@
 	Production	Staging	Dev
-V1.5	https://www.virtualflybrain.org		
+V1.5	https://www.virtualflybrain.org	http://vfbsandbox3.inf.ed.ac.uk	http://vfbdev.inf.ed.ac.uk
 V2	https://v2.virtualflybrain.org	https://v2a.virtualflybrain.org	https://v2-dev.virtualflybrain.org
 PDB	http://pdb.virtualflybrain.org	http://pdb-alpha.virtualflybrain.org	http://pdb-dev.virtualflybrain.org
 OWL	owl.virtualflybrain.org	owl-alpha.virtualflybrain.org	owl-dev.virtualflybrain.org
