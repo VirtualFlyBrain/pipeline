@@ -40,7 +40,7 @@ script: uk/ac/ebi/vfb/neo4j/neo2neo/KB2Prod.py  - run via [Pipeline shell script
 
 ### Neo2OWL
 
-Scala code built on the SCOWL library:  https://github.com/VirtualFlyBrain/VFB_neo_kb_2_owl
+Scala code built on the SCOWL library:  https://github.com/VirtualFlyBrain/VFB_neo_kb_2_owl 
 
 This code is used to gate release of datasets to OWL (and from there to staging & production). Any dataset with production=true is converted to OWL. It can also be used to write named datasets to OWL, independent of any dataset flags.
 
@@ -48,15 +48,15 @@ This code is used to gate release of datasets to OWL (and from there to staging 
 
 * Import pub data from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/import\_pub_data.py - run via [Pipeline shell script](https://github.com/VirtualFlyBrain/pipeline/blob/master/process.sh)
 
-* Import expression curation from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/expression_runner.py - 
+* Import expression curation from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/expression_runner.py - Not currently in pipeline shell.
 
 ### Prod2Prod
 
 Denormalization scripts:
 
-* Add constraints + generate labels from classification :  uk/ac/ebi/vfb/neo4j/neo2neo/add\_constraints\_and\_redundant\_labels.py
+* Add constraints + generate labels from classification :  uk/ac/ebi/vfb/neo4j/neo2neo/add\_constraints\_and\_redundant\_labels.py run via [Pipeline shell script]
 
-* Convert edges to use labels for relation names uk/ac/ebi/vfb/neo4j/neo2neo/make\_named\_edges.py  This should run last!
+* Convert edges to use labels for relation names uk/ac/ebi/vfb/neo4j/neo2neo/make\_named\_edges.py  This needs to run last! run via [Pipeline shell script]
 
 { NOT CURRENTLY IMPLEMENTED - LEAVING FOR REFERENCE 
 
