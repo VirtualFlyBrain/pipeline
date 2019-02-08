@@ -1,9 +1,9 @@
 	Production	Staging	Dev
-V1.5	virtualflybrain.org		
-V2	v2.virtualflybrain.org		
-PDB	pdb.virtualflybrain.org		http://pdb-alpha.virtualflybrain.org
-OWL	owl.virtualflybrain.org		
-SOLR			
+V1.5	https://www.virtualflybrain.org		
+V2	https://v2.virtualflybrain.org	https://v2a.virtualflybrain.org	https://v2-dev.virtualflybrain.org
+PDB	http://pdb.virtualflybrain.org	http://pdb-alpha.virtualflybrain.org	http://pdb-dev.virtualflybrain.org
+OWL	owl.virtualflybrain.org	owl-alpha.virtualflybrain.org	owl-dev.virtualflybrain.org
+SOLR	solr.virtualflybrain.org	solr-alpha.virtualflybrain.org	solr-dev.virtualflybrain.org
 VFB.owl version			
 FBbt version			
 FlyBase version			
