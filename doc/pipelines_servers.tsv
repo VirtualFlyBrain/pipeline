@@ -4,6 +4,7 @@ V2	https://v2.virtualflybrain.org	https://v2a.virtualflybrain.org	https://v2-dev
 PDB	http://pdb.virtualflybrain.org	http://pdb-alpha.virtualflybrain.org	http://pdb-dev.virtualflybrain.org
 OWL	owl.virtualflybrain.org	owl-alpha.virtualflybrain.org	owl-dev.virtualflybrain.org
 SOLR	solr.virtualflybrain.org	solr-alpha.virtualflybrain.org	solr-dev.virtualflybrain.org
+Pipline branch	master	??	??
 VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)		
 FBbt version	http://www.virtualflybrain.org/owldate		
 FlyBase version	http://www.virtualflybrain.org/flybase		
