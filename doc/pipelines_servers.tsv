@@ -5,6 +5,7 @@ PDB	http://pdb.virtualflybrain.org	http://pdb-alpha.virtualflybrain.org	http://p
 OWL	owl.virtualflybrain.org	owl-alpha.virtualflybrain.org	owl-dev.virtualflybrain.org
 SOLR	solr.virtualflybrain.org	solr-alpha.virtualflybrain.org	solr-dev.virtualflybrain.org
 Pipline branch	master	??	??
+VFB_neo4j branch	master	master	master
 VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)		
 FBbt version	http://www.virtualflybrain.org/owldate		
 FlyBase version	http://www.virtualflybrain.org/flybase		
