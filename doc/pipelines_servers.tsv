@@ -7,4 +7,4 @@ SOLR	solr.virtualflybrain.org	solr-alpha.virtualflybrain.org	solr-dev.virtualfly
 VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)		
 FBbt version	http://www.virtualflybrain.org/owldate		
 FlyBase version	http://www.virtualflybrain.org/flybase		
-New data (not yet on prod)	-		expression annotation
+New data (not yet on prod)	-	*expression annotation - added in error*	expression annotation
