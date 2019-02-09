@@ -6,20 +6,23 @@
 
 ## Components
 
-### VFB NEO KB
+### (VFB) KB
 
 A knowledgeBase of images and the anatomical entities depicted in them.  Image data could be confocal, E.M., schematic, painted domains over confocal.  
 
 * Anatomical and image individuals are typed using FBbt and FBbi respectively.  
 * The genetic features expressed by anatomical entites are expressed using FB feature IDs.  
-* The relationships of anatomical entites to each are stored for imported connectomic data.  
 * Images depict anatomical enties.  Images may be registered to other images.
+
+### (VFB) PDB
+
+Integrated, web facing Neo4j DB
 
 ## Description of scripts
 
-ONT2KB_update:   uk.ac.ebi.vfb.neo4j.KB_tools.node_importer.
+ONT2KB_update:   uk.ac.ebi.vfb.neo4j.KB_tools.node_importer.update_from_obograph (Requires JSON version for loading).
 
-FB2KB_update:    uk.ac.ebi.vfb.neo4j.KB_tools.node_importer.
+FB2KB_update:    uk.ac.ebi.vfb.neo4j.KB_tools.node_importer.update_from_flybase
 
 ### OLS loader
 
@@ -42,13 +45,15 @@ script: uk/ac/ebi/vfb/neo4j/neo2neo/KB2Prod.py  - run via [Pipeline shell script
 
 Scala code built on the SCOWL library:  https://github.com/VirtualFlyBrain/VFB_neo_kb_2_owl 
 
-This code is used to gate release of datasets to OWL (and from there to staging & production). Any dataset with production=true is converted to OWL. It can also be used to write named datasets to OWL, independent of any dataset flags.
+This code is used to gate release of datasets to OWL (and from there to staging & production). In 'ALL' mode, any dataset with production=true is converted to OWL. It can also be used to write named datasets to OWL, independent of any dataset flags.
+
+Jenkins: https://jenkins.virtualflybrain.org/job/Build_vfb.owl  Any dataset with production=true is converted to OWL.
 
 ### FB2Prod
 
-* Import pub data from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/import\_pub_data.py - run via [Pipeline shell script](https://github.com/VirtualFlyBrain/pipeline/blob/master/process.sh)
+* Import pub data from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/import\_pub_data.py - run via [Pipeline shell script](https://github.com/VirtualFlyBrain/pipeline/blob/master/process.sh) as part of [Jenkins pipline job](https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Production_DB/)
 
-* Import expression curation from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/expression_runner.py - Not currently in pipeline shell.
+* Import expression curation from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/expression_runner.py - Not currently in pipeline shell. https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Production_DB-development/
 
 ### Prod2Prod
 
