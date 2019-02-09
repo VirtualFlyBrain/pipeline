@@ -2,7 +2,7 @@
 
 ## Architecture
 
-![image](https://user-images.githubusercontent.com/112839/52508454-9e7d7400-2ba9-11e9-8775-0a052d7595f7.png)
+![image](https://user-images.githubusercontent.com/112839/52511024-26b44700-2bb3-11e9-8e75-9b6e220de24e.png)
 
 ## Components
 
@@ -74,5 +74,15 @@ Can do this in Cypher:
 (more work needed to fully spec)
 ~~~~~~~~~~~~
 }
+
+### Dev, Staging and Prod
+
+Data release:
+
+![image](https://user-images.githubusercontent.com/112839/52516050-45c5cf80-2bd9-11e9-9974-9624da75f0ba.png)
+
+KB -> KBW = Jenkins: 
+
+firstload -> staging (alpha) = Jenkins:
 
 
