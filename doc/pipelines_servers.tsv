@@ -3,10 +3,11 @@ V1.5	https://www.virtualflybrain.org	http://vfbsandbox3.inf.ed.ac.uk	http://vfbd
 V2	https://v2.virtualflybrain.org	https://v2a.virtualflybrain.org	https://v2-dev.virtualflybrain.org
 PDB	http://pdb.virtualflybrain.org	http://pdb-alpha.virtualflybrain.org	http://pdb-dev.virtualflybrain.org
 OWL	owl.virtualflybrain.org	owl-alpha.virtualflybrain.org	owl-dev.virtualflybrain.org
+Jenkins pipeline	N/A (copied from staging)	Load_VFB_staging_DB	Load_VFB_Production_DB-development
 SOLR	solr.virtualflybrain.org	solr-alpha.virtualflybrain.org	solr-dev.virtualflybrain.org
+neo2owl branch			
+geppetto branch			
 Pipeline branch	master	??	??
 VFB_neo4j branch	master	master	master
-VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)		
+VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)	2019-02-11	
 FBbt version	http://www.virtualflybrain.org/owldate		
-FlyBase version	http://www.virtualflybrain.org/flybase		
-New data (not yet on prod)	-	*expression annotation - added in error*	expression annotation
