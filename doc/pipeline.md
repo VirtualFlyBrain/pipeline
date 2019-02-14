@@ -91,7 +91,7 @@ KB -> KBW = Jenkins:
 firstload -> staging (alpha) = Jenkins:
 
 ### Prod2SOLR
-virtualflybrain/docker-vfb-solr takes a envirmental variable at startup called SOLRDOCS
+virtualflybrain/docker-vfb-solr takes a enviroment variable at startup called SOLRDOCS
 This contains any additional records not added by the OLS loader. Currently just the DataSets from PDB are manually copied across. The records are creasted using the follopwing cypher:
 ```
 MATCH (n:DataSet) where not has(n.public) with collect(distinct '{"id":"vfb:class:'+n.iri+'","iri":"'+n.iri+'","short_form":"'+n.short_form+'","shortform_autosuggest":["'+n.short_form+'"],"obo_id":"'+n.short_form+'","label":"'+n.label+'","label_autosuggest":"'+n.label+'","label_autosuggest_ws":"'+n.label+'","label_autosuggest_e":"'+n.label+'","autosuggest":["'+n.label+'"],"autosuggest_e":["'+n.label+'"],"description":["'+coalesce(n.description, n.label)+'"],"ontology_name":"vfb","ontology_title":"Virtual Fly Brain Knowledge Base","ontology_prefix":"VFB","ontology_iri":"http://purl.obolibrary.org/obo/fbbt/vfb/vfb.owl","type":"class","is_defining_ontology":false,"has_children":false,"is_root":true}') as doc Return REDUCE(output = [], r IN doc | output + r) AS flat
