@@ -1,0 +1,41 @@
+ds.short_form	ds.label	ds.production	pub	license	individuals
+Aso2014	MBONs and split-GAL4 lines that target them (Aso2014)	True	FBrf0227179	CC-BY-SA_4.0	292
+AsoRubin2016	split-GAL4 lines for dopaminergic neurons (AsoRubin2016)	True	FBrf0233230	CC-BY-SA_4.0	12
+Berck2016	Berck, Khandelwal et al. 2016	True	FBrf0232785	CC-BY-SA_4.0	160
+BrainName_Ito_half_brain	BrainName_Ito_half_brain	True	FBrf0224194	CC-BY-SA_4.0	76
+Burgos2018	Burgos et al. 2018	True	FBrf0238464	CC-BY-SA_4.0	37
+Cachero2010	Adult Brain fru clones (Cachero2010)	True	FBrf0211926	CC-BY-SA_4.0	119
+Chiang2010	FlyCircuit 1.0 - single neurons (Chiang2010)	True	FBrf0212704	FlyCircuit License	16127
+CostaJefferis_v2	CostaJefferis_v2	False		CC-BY-SA_4.0	604
+CostaJefferis_v3	CostaJefferis_v3	True	FBrf0232991	CC-BY-SA_4.0	1061
+Court2017	Court2017	True	doi_10_1101_122952	CC-BY-SA_4.0	24
+Dickson2017	Dickson2017	True	doi_10_1101_198648	CC-BY-NC-SA_4.0	5387
+Dickson_VT	Dickson_VT	True	doi_10_1101_198648	CC-BY-NC-SA_4.0	18016
+Eichler2017	Eichler, Li, Litwin-Kumar et al. 2017	True	FBrf0236359	CC-BY-SA_4.0	384
+Fushiki2016	Fushiki et al. 2016	True	FBrf0231611	CC-BY-SA_4.0	64
+Gerhard2017	Gerhard et al. 2017	True	FBrf0237057	CC-BY-SA_4.0	33
+Hampel2015	Grooming neurons and drivers, Hampel 2015	True		CC-BY-SA_4.0	2
+Hampel2017	LexA that targets mechanosensory eye bristles	True	FBrf0236775	CC-BY-SA_4.0	1
+Heckscher2015	Heckscher et al. 2015	True	FBrf0229965	CC-BY-SA_4.0	62
+Ito2013	Ito lab adult brain lineage clone image set	True	FBrf0221438	CC-BY-NC-SA_4.0	96
+Jenett2012	FlyLight - GMR GAL4 lines (Jenett2012)	True	FBrf0219813	CC-BY-NC-SA_4.0	3469
+JenettShinomya_BrainName	JenettShinomya_BrainName	True		CC-BY-SA_4.0	58
+Jovanic2016	Jovanic, Schneider-Mizell et al. 2016	True	FBrf0233796	CC-BY-SA_4.0	18
+Knowles_Barley2010	Knowles-Barley2010	True	FBrf0211243	CC-BY-SA_4.0	504
+Kohl2013	Kohl2013	True	FBrf0223724	CC-BY-SA_4.0	111
+Larderet2017	Larderet, Fritsch et al. 2017	True	FBrf0237760	CC-BY-SA_4.0	71
+Lilvis2018	example of pIP10 neuron	True	doi_10_1101_238147		2
+Matsuo2016	Matsuo2016	True	FBrf0230862	CC-BY-SA_4.0	41
+Namiki2018	split-GAL4 lines for descending neurons (Namiki2018)	True	FBrf0239335	CC-BY-SA_4.0	129
+Ohyama2015	Ohyama, Schneider-Mizell et al. 2015	True	FBrf0228257	CC-BY-SA_4.0	108
+Robie2017	split-GAL4 lines for  EB neurons (Robie2017)	True	FBrf0236042	CC-BY-SA_4.0	20
+Schlegel2016	larval hugin neurons - EM (Schlegel2016)	True	FBrf0234450	CC-BY-SA_4.0	193
+Takagi2017	Takagi et al. 2017	True	FBrf0237618	CC-BY-SA_4.0	28
+Truman2016	L3 Larval Template	True			1
+TrumanWood2018	Truman Larval Flip-Out Collection	False			12241
+TrumanWood2018public	Truman Larval Flip-Out Collection	True			2
+Tsubouchi2017	Representation of somatosensory information	True		CC-BY-SA_4.0	0
+WoodHartenstein2018	WoodHartenstein2018	True		CC-BY-SA_4.0	255
+Wu2016	split-GAL4 lines for LC VPNs (Wu2016)	True	FBrf0234700	CC-BY-SA_4.0	115
+Yu2013	Lee lab adult brain lineage clone image set	True	FBrf0221412	CC-BY-NC-SA_4.0	107
+Zwart2016	Zwart et al. 2016	True	FBrf0233076	CC-BY-SA_4.0	3
