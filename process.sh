@@ -23,18 +23,6 @@ fi
 echo -e "travis_fold:end:KB2Prod"
 
 echo ''
-echo -e "travis_fold:start:expand_xrefs"
-echo '** expand_xrefs **'
-if [ "${RUN_expand_xrefs}" != false ]
-then
-  export BUILD_OUTPUT=${WORKSPACE}/expand_xrefs.out
-  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/expand_xrefs.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
-  cp $BUILD_OUTPUT /logs/
-  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
-else
-  echo SKIPPED
-fi
-echo -e "travis_fold:end:expand_xrefs"
 
 echo -e "travis_fold:start:add_refs_for_anat"
 echo '** Expanding refs on anatomy terms **'
@@ -97,3 +85,18 @@ else
   echo SKIPPED
 fi
 echo -e "travis_fold:end:make_named_edges"
+
+echo ''
+echo -e "travis_fold:start:expand_xrefs"
+echo '** expand_xrefs **'
+if [ "${RUN_expand_xrefs}" != false ]
+then
+  export BUILD_OUTPUT=${WORKSPACE}/expand_xrefs.out
+  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/neo2neo/expand_xrefs.py ${PDBSERVER} ${PDBuser} ${PDBpassword}"
+  cp $BUILD_OUTPUT /logs/
+  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
+else
+  echo SKIPPED
+fi
+echo -e "travis_fold:end:expand_xrefs"
+
