@@ -10,5 +10,5 @@ geppetto branch
 Pipeline branch	master	master	master
 Pipeline Jobs	Copied from Staging	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Staging_DB/	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_development_DB/
 VFB_neo4j branch	master	master	master
-VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)	2019-02-11	
+VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Staging_DB/lastSuccessfulBuild/parameters/	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_development_DB/lastSuccessfulBuild/parameters/
 FBbt version	http://www.virtualflybrain.org/owldate		
