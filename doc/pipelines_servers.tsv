@@ -11,4 +11,4 @@ Pipeline branch	master	master	master
 Pipeline Jobs	Copied from Staging	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Staging_DB/	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_development_DB/
 VFB_neo4j branch	master	master	master
 VFB.owl version	https://github.com/VirtualFlyBrain/VFB_owl/releases (Current)	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Staging_DB/lastSuccessfulBuild/parameters/	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_development_DB/lastSuccessfulBuild/parameters/
-FBbt version	http://www.virtualflybrain.org/owldate		
+FBbt version	http://www.virtualflybrain.org/owldate	Sandbox3 Deployed with https://jenkins.virtualflybrain.org/job/Deploy_OWL_to_Sandbox3/lastSuccessfulBuild/parameters/	VFB.owl last built with https://jenkins.virtualflybrain.org/job/Build_vfb.owl/lastSuccessfulBuild/parameters/
