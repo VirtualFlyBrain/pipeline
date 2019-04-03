@@ -5,8 +5,8 @@ PDB	http://pdb.virtualflybrain.org	http://pdb-alpha.virtualflybrain.org	http://p
 OWL	owl.virtualflybrain.org	owl-alpha.virtualflybrain.org	owl-dev.virtualflybrain.org
 Jenkins pipeline	N/A (copied from staging)	Load_VFB_staging_DB	Load_VFB_Production_DB-development
 SOLR	solr.virtualflybrain.org	solr-alpha.virtualflybrain.org	solr-dev.virtualflybrain.org
-neo2owl branch			
-geppetto branch			
+neo2owl branch	https://herd.virtualflybrain.org/env/1a5/apps/stacks/1st5/services/1s175/containers?which=all	Note: owl-alpha->owl-dev (no alpha branch to match Current/dev OWL releases)	https://herd.virtualflybrain.org/env/1a5/apps/stacks/1st10/services/1s178/containers?tags=development&which=all
+geppetto branch	https://herd.virtualflybrain.org/env/1a5/apps/stacks/1st5/services/1s17/containers?which=all	https://herd.virtualflybrain.org/env/1a5/apps/stacks/1st10/services/1s99/containers?tags=development&which=all	https://herd.virtualflybrain.org/env/1a5/apps/stacks/1st10/services/1s40/containers?tags=development&which=all
 Pipeline branch	master	master	master
 Pipeline Jobs	Copied from Staging	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Staging_DB/	https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_development_DB/
 VFB_neo4j branch	master	master	master
