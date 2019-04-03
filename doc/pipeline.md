@@ -51,9 +51,9 @@ Jenkins: https://jenkins.virtualflybrain.org/job/Build_vfb.owl  Any dataset with
 
 ### FB2Prod
 
-* Import pub data from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/import\_pub_data.py - run via [Pipeline shell script](https://github.com/VirtualFlyBrain/pipeline/blob/master/process.sh) as part of [Jenkins pipline job](https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Production_DB/)
+* Import pub data from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/import\_pub_data.py - run via [Pipeline shell script](https://github.com/VirtualFlyBrain/pipeline/blob/master/process.sh) as part of [Jenkins pipline staging job](https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Staging_DB/)
 
-* Import expression curation from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/expression_runner.py - Not currently in pipeline shell. https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_Production_DB-development/
+* Import expression curation from FlyBase: uk/ac/ebi/vfb/neo4j/flybase2neo/expression_runner.py - Not currently in pipeline shell. https://blanik-jenkins.virtualflybrain.org/view/Rancher/job/Load_VFB_development_DB/
 
 ### Prod2Prod
 
