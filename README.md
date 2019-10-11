@@ -1,6 +1,6 @@
 Amalgamated pipeline code 
-[![add_refs_for_anat](https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/1)
-[![import_pub_data](https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/2)
+[![add_refs_for_anat](https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/1)]
+[![import_pub_data](https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/2)]
 
 # pipeline
 A repository for amalgamating pipeline issue tickets and general VFB pipeline doc
