@@ -7,6 +7,8 @@ cd ${WORKSPACE}/VFB_neo4j
 git pull origin master
 cd ..
 
+cd "${WORKSPACE}/VFB_neo4j" && \
+pip install -r requirements.txt
 
 echo ''
 echo -e "travis_fold:start:KB2Prod"
