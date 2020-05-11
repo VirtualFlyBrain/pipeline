@@ -17,6 +17,7 @@ ENV RUN_import_pub_data=true
 ENV RUN_make_named_edges=true
 ENV RUN_KB2Prod=true
 ENV RUN_add_constraints_and_redundant_labels=true
+ENV RUN_Owl2neolabels=true
 
 RUN pip3 install wheel
 RUN pip3 install requests
