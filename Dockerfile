@@ -51,9 +51,13 @@ cd "${WORKSPACE}" && \
 echo '** Git checkout VFB_neo4j **' && \
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git 
 
+RUN pip3 install -r ${WORKSPACE}/VFB_neo4j/requirements.txt
+
 RUN cd "${WORKSPACE}" && \
 echo '** Git checkout VFB_connect **' && \
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_connect.git
+
+RUN pip3 install -r ${WORKSPACE}/VFB_connect/requirements.txt
 
 RUN cd ${WORKSPACE} && \
 echo -e "travis_fold:end:processLoad"
