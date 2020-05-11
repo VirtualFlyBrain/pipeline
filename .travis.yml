@@ -14,11 +14,11 @@ env:
     - WORKSPACE=${TRAVIS_BUILD_DIR}
     - HOME=${TRAVIS_BUILD_DIR}
   matrix:
-    - TOOL='add_refs_for_anat' RUN_add_anonymous_types=false RUN_add_refs_for_anat=true RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false
-    - TOOL='import_pub_data' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=true RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false
-    - TOOL='make_named_edges' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=true RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false
-    - TOOL='KB2Prod' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=true RUN_add_constraints_and_redundant_labels=false
-    - TOOL='add_constraints_and_redundant_labels' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=true
+    - TOOL='add_refs_for_anat' RUN_add_anonymous_types=false RUN_add_refs_for_anat=true RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false RUN_Owl2neolabels=false
+    - TOOL='import_pub_data' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=true RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false RUN_Owl2neolabels=false
+    - TOOL='make_named_edges' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=true RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false RUN_Owl2neolabels=false
+    - TOOL='KB2Prod' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=true RUN_add_constraints_and_redundant_labels=false RUN_Owl2neolabels=false
+    - TOOL='add_constraints_and_redundant_labels' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=true RUN_Owl2neolabels=false
     - TOOL='Owl2neolabels' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=fasle RUN_add_constraints_and_redundant_labels=false RUN_Owl2neolabels=true
 
 before_install:
