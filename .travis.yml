@@ -5,6 +5,7 @@ services:
 
 env:
   global:
+    - OWLSERVER=http://owl.VirtualFlyBrain.org
     - PDBSERVER="http://192.168.0.1:7474"
     - PDBuser="neo4j"
     - PDBpassword="neo4j"
@@ -18,6 +19,7 @@ env:
     - TOOL='make_named_edges' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=true RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=false
     - TOOL='KB2Prod' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=true RUN_add_constraints_and_redundant_labels=false
     - TOOL='add_constraints_and_redundant_labels' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=false RUN_add_constraints_and_redundant_labels=true
+    - TOOL='Owl2neolabels' RUN_add_anonymous_types=false RUN_add_refs_for_anat=false RUN_import_pub_data=false RUN_make_named_edges=false RUN_KB2Prod=fasle RUN_add_constraints_and_redundant_labels=false RUN_Owl2neolabels=true
 
 before_install:
   - echo -e "travis_fold:start:OLS-loading"
@@ -39,7 +41,7 @@ script:
   - ${TRAVIS_BUILD_DIR}/runsilent.sh "docker build -t test-image:test ."
   - echo -e "travis_fold:end:dockerbuild"
   - echo -e "travis_fold:start:dockerstart"
-  - travis_wait 200 docker run -d --name test --net=dockernet --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+  - travis_wait 200 docker run -d --name test --net=dockernet --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
   - sleep 20s
   - docker logs -f test 
   - if docker logs test 2>&1 | grep -v 'already exists' | grep -q Error; then travis_terminate 2; fi

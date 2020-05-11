@@ -102,3 +102,17 @@ else
 fi
 echo -e "travis_fold:end:expand_xrefs"
 
+echo ''
+echo -e "travis_fold:start:owl2neolabels"
+echo '** Owl2neolabels **'
+if [ "${RUN_Owl2neolabels}" != false ]
+then
+  export BUILD_OUTPUT=${WORKSPACE}/Owl2neolabels.out
+  ${WORKSPACE}/runsilent.sh "python3 ${WORKSPACE}/VFB_neo4j/src/uk/ac/ebi/vfb/neo4j/owl2neo/add_labels_from_owl_queries.py ${PDBSERVER} ${PDBuser} ${PDBpassword} ${OWLSERVER}"
+  cp $BUILD_OUTPUT /logs/
+  egrep 'Exception|Error|error|exception|warning' $BUILD_OUTPUT
+else
+  echo SKIPPED
+fi
+echo -e "travis_fold:end:owl2neolabels"
+
