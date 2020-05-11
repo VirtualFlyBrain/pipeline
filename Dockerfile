@@ -30,6 +30,8 @@ ENV KBSERVER=http://kb.virtualflybrain.org
 
 ENV PDBSERVER=http://pdb.virtualflybrain.org
 
+ENV OWLSERVER=http://owl.virtualflybrain.org
+
 ENV PDBuser=neo4j
 
 ENV PDBpassword=password
@@ -49,11 +51,15 @@ cd "${WORKSPACE}" && \
 echo '** Git checkout VFB_neo4j **' && \
 git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git 
 
+RUN cd "${WORKSPACE}" && \
+echo '** Git checkout VFB_connect **' && \
+git clone --quiet https://github.com/VirtualFlyBrain/VFB_connect.git
+
 RUN cd ${WORKSPACE} && \
 echo -e "travis_fold:end:processLoad"
 
 RUN echo -e "travis_fold:start:sourcetree" && tree ${WORKSPACE} && echo -e "travis_fold:end:sourcetree"
 
-ENV PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/
+ENV PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_connect/src/
 
 CMD ["/opt/VFB/process.sh"]
