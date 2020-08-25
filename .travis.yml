@@ -8,7 +8,7 @@ env:
     - OWLSERVER=http://owl.p2.virtualflybrain.org/kbs/vfb/
     - PDBSERVER="http://192.168.0.1:7474"
     - PDBuser="neo4j"
-    - PDBpassword="neo4j"
+    - PDBpassword="testPassword"
     - BUILD_OUTPUT=${TRAVIS_BUILD_DIR}/test.out
     - PING_SLEEP=60s
     - WORKSPACE=${TRAVIS_BUILD_DIR}
