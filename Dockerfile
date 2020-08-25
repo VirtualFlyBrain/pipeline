@@ -18,6 +18,7 @@ ENV RUN_make_named_edges=false
 ENV RUN_KB2Prod=false
 ENV RUN_add_constraints_and_redundant_labels=false
 ENV RUN_Owl2neolabels=false
+ENV RUN_expand_xrefs=true
 
 RUN pip3 install wheel
 RUN pip3 install requests
