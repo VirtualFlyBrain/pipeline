@@ -1,10 +1,10 @@
 #!/bin/sh
 
-echo 'START' >> ${WORKSPACE}/tick.out
-# tail -f ${WORKSPACE}/tick.out >&1 &>&1
+
 
 cd ${WORKSPACE}/VFB_neo4j
-git pull origin master
+git config --global user.email "support@VirtualFlyBrain.org"
+git pull origin pipline2
 cd ..
 
 cd "${WORKSPACE}/VFB_neo4j" && \
