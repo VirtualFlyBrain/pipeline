@@ -4,6 +4,7 @@ echo 'START' >> ${WORKSPACE}/tick.out
 # tail -f ${WORKSPACE}/tick.out >&1 &>&1
 
 cd ${WORKSPACE}/VFB_neo4j
+git config --global user.email "support@VirtualFlyBrain.org"
 git pull origin master
 cd ..
 
