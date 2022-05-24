@@ -1,0 +1,85 @@
+name: Tests
+
+on:
+  push:
+    branches: '**'
+    tags: '**'
+  pull_request:
+    branches: '**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.7"
+    - name: Start database
+      run: |
+        docker run -d --name pdb -p 7474:7474 -p 7687:7687 --env=NEO4J_AUTH=neo4j/test --env=NEOREADONLY=false --env=NEO4J_dbms_read__only=false --env=NEO4J_dbms_memory_heap_maxSize=1G --volume=$(pwd)/src/:/import/ virtualflybrain/docker-vfb-neo4j-productiondb:pipeline2
+        sleep 60s
+    - name: Docker Build
+      run: |
+        docker build -t test-image:test .
+    - name: add_refs_for_anat
+      run: |
+        RUN_add_anonymous_types=false 
+        RUN_add_refs_for_anat=true 
+        RUN_import_pub_data=false 
+        RUN_make_named_edges=false 
+        RUN_KB2Prod=false 
+        RUN_add_constraints_and_redundant_labels=false 
+        RUN_Owl2neolabels=false 
+        RUN_expand_xrefs=false
+        OWLSERVER=http://owl.p2.virtualflybrain.org/kbs/vfb/
+        PDBSERVER="http://localhost:7474"
+        PDBuser="neo4j"
+        PDBpassword="testPassword"
+        BUILD_OUTPUT=$(pwd)/test.out
+        PING_SLEEP=60s
+        WORKSPACE=$(pwd)
+        HOME=$(pwd)
+        docker run --name test --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+    - name: import_pub_data
+      run: |
+        RUN_add_anonymous_types=false 
+        RUN_add_refs_for_anat=false 
+        RUN_import_pub_data=true
+        RUN_make_named_edges=false 
+        RUN_KB2Prod=false 
+        RUN_add_constraints_and_redundant_labels=false 
+        RUN_Owl2neolabels=false 
+        RUN_expand_xrefs=false
+        OWLSERVER=http://owl.p2.virtualflybrain.org/kbs/vfb/
+        PDBSERVER="http://localhost:7474"
+        PDBuser="neo4j"
+        PDBpassword="testPassword"
+        BUILD_OUTPUT=$(pwd)/test.out
+        PING_SLEEP=60s
+        WORKSPACE=$(pwd)
+        HOME=$(pwd)
+        docker run --name test --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test 
+    - name: expand_xrefs
+      run: |
+        RUN_add_anonymous_types=false 
+        RUN_add_refs_for_anat=false 
+        RUN_import_pub_data=false
+        RUN_make_named_edges=false 
+        RUN_KB2Prod=false 
+        RUN_add_constraints_and_redundant_labels=false 
+        RUN_Owl2neolabels=false 
+        RUN_expand_xrefs=true
+        OWLSERVER=http://owl.p2.virtualflybrain.org/kbs/vfb/
+        PDBSERVER="http://localhost:7474"
+        PDBuser="neo4j"
+        PDBpassword="testPassword"
+        BUILD_OUTPUT=$(pwd)/test.out
+        PING_SLEEP=60s
+        WORKSPACE=$(pwd)
+        HOME=$(pwd)
+        docker run --name test --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+
