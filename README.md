@@ -1,17 +1,8 @@
 Amalgamated pipeline code 
 
+[![Tests](https://github.com/VirtualFlyBrain/pipeline/actions/workflows/tests.yml/badge.svg)](https://github.com/VirtualFlyBrain/pipeline/actions/workflows/tests.yml)
 
-| Add Refs for Anat | Import Pub Data   | Make Named Edges  | KB to Prod        | Add Contraints and Redundant Labels |
-|-------------------|-------------------|-------------------|-------------------|-------------------|
-| [![Build1][1]][6] | [![Build2][2]][6] | [![Build3][3]][6] | [![Build4][4]][6] | [![Build4][5]][6] |
-
-[1]: https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/1
-[2]: https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/2
-[3]: https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/3
-[4]: https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/4
-[5]: https://travis-matrix-badges.herokuapp.com/repos/VirtualFlyBrain/pipeline/branches/master/5
-[6]: https://travis-ci.org/VirtualFlyBrain/pipeline
-
+[![Docker Image CI](https://github.com/VirtualFlyBrain/pipeline/actions/workflows/DockerImage.yml/badge.svg)](https://github.com/VirtualFlyBrain/pipeline/actions/workflows/DockerImage.yml)
 
 # pipeline
 A repository for amalgamating pipeline issue tickets and general VFB pipeline doc
