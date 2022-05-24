@@ -51,7 +51,7 @@ RUN chmod +x /opt/VFB/*.sh
 RUN echo -e "travis_fold:start:processLoad" && \
 cd "${WORKSPACE}" && \
 echo '** Git checkout VFB_neo4j **' && \
-git clone --quiet -b pipeline2 https://github.com/VirtualFlyBrain/VFB_neo4j.git 
+git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git 
 
 RUN pip3 install -r ${WORKSPACE}/VFB_neo4j/requirements.txt
 
