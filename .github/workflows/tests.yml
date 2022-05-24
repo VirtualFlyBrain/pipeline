@@ -43,7 +43,7 @@ jobs:
         PING_SLEEP=60s
         WORKSPACE=$(pwd)
         HOME=$(pwd)
-        docker run --name test --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+        docker run --name test1 --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
     - name: import_pub_data
       run: |
         RUN_add_anonymous_types=false 
@@ -62,7 +62,7 @@ jobs:
         PING_SLEEP=60s
         WORKSPACE=$(pwd)
         HOME=$(pwd)
-        docker run --name test --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test 
+        docker run --name test2 --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test 
     - name: expand_xrefs
       run: |
         RUN_add_anonymous_types=false 
@@ -81,5 +81,5 @@ jobs:
         PING_SLEEP=60s
         WORKSPACE=$(pwd)
         HOME=$(pwd)
-        docker run --name test --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
+        docker run --name test3 --env=RUN_add_anonymous_types=${RUN_add_anonymous_types} --env=RUN_add_refs_for_anat=${RUN_add_refs_for_anat} --env=RUN_import_pub_data=${RUN_import_pub_data} --env=RUN_make_named_edges=${RUN_make_named_edges} --env=RUN_Owl2neolabels=${RUN_Owl2neolabels} --env=RUN_KB2Prod=${RUN_KB2Prod} --env=RUN_add_constraints_and_redundant_labels=${RUN_add_constraints_and_redundant_labels} --env=CHUNK_SIZE=100 --env=VFB_OWL_VERSION=dev --env=OWLSERVER=${OWLSERVER} --env=PDBSERVER=${PDBSERVER} --env=PDBuser=${PDBuser} --env=PDBpassword=${PDBpassword} test-image:test
 
