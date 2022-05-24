@@ -21,20 +21,23 @@ jobs:
     - name: Start database
       run: |
         docker run -d --name pdb -p 7474:7474 -p 7687:7687 --env=NEO4J_AUTH=neo4j/test --env=NEOREADONLY=false --env=NEO4J_dbms_read__only=false --env=NEO4J_dbms_memory_heap_maxSize=2G --volume=$(pwd)/src/:/import/ virtualflybrain/docker-vfb-neo4j-productiondb:pipeline2
-        sleep 60s
+    - name: Download VFB_neo4j
+      run: |
+        git clone https://github.com/VirtualFlyBrain/VFB_neo4j.git
+        pip install -r VFB_neo4j/requirements.txt
     - name: add_refs_for_anat
       run: |
-        export IMPORT=$(pwd)/src/
-        cd src
+        export IMPORT=$(pwd)/VFB_neo4j/src/
+        cd VFB_neo4j/src
         python3 -m uk.ac.ebi.vfb.neo4j.flybase2neo.add_refs_for_anat http://localhost:7474 neo4j test
     - name: import_pub_data
       run: |
-        export IMPORT=$(pwd)/src/
-        cd src
+        export IMPORT=$(pwd)/VFB_neo4j/src/
+        cd VFB_neo4j/src
         python3 -m uk.ac.ebi.vfb.neo4j.flybase2neo.import_pub_data http://localhost:7474 neo4j test
     - name: expand_xrefs
       run: |
-        export IMPORT=$(pwd)/src/
-        cd src
+        export IMPORT=$(pwd)/VFB_neo4j/src/
+        cd VFB_neo4j/src
         python3 -m uk.ac.ebi.vfb.neo4j.neo2neo.expand_xrefs http://localhost:7474 neo4j test
         
