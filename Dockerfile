@@ -55,17 +55,11 @@ git clone --quiet https://github.com/VirtualFlyBrain/VFB_neo4j.git
 
 RUN pip3 install -r ${WORKSPACE}/VFB_neo4j/requirements.txt
 
-RUN cd "${WORKSPACE}" && \
-echo '** Git checkout VFB_connect **' && \
-git clone --quiet https://github.com/VirtualFlyBrain/VFB_connect.git
-
-RUN pip3 install -r ${WORKSPACE}/VFB_connect/requirements.txt
-
 RUN cd ${WORKSPACE} && \
 echo -e "travis_fold:end:processLoad"
 
 RUN echo -e "travis_fold:start:sourcetree" && tree ${WORKSPACE} && echo -e "travis_fold:end:sourcetree"
 
-ENV PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/:${WORKSPACE}/VFB_connect/src/
+ENV PYTHONPATH=${WORKSPACE}/VFB_neo4j/src/
 
 CMD ["/opt/VFB/process.sh"]
