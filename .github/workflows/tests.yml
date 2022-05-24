@@ -21,6 +21,7 @@ jobs:
     - name: Start database
       run: |
         docker run -d --name pdb -p 7474:7474 -p 7687:7687 --env=NEO4J_AUTH=neo4j/test --env=NEOREADONLY=false --env=NEO4J_dbms_read__only=false --env=NEO4J_dbms_memory_heap_maxSize=2G --volume=$(pwd)/src/:/import/ virtualflybrain/docker-vfb-neo4j-productiondb:pipeline2
+        sleep 2m
     - name: Download VFB_neo4j
       run: |
         git clone https://github.com/VirtualFlyBrain/VFB_neo4j.git
