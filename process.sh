@@ -4,7 +4,7 @@
 
 cd ${WORKSPACE}/VFB_neo4j
 git config --global user.email "support@VirtualFlyBrain.org"
-git pull origin master
+git pull origin nonCSV
 cd ..
 
 cd "${WORKSPACE}/VFB_neo4j" && \
